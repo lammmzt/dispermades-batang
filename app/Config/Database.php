@@ -33,7 +33,7 @@ class Database extends Config
         // 'database'     => 'dispermades_batang',
 
         'username'     => 'dispermades-bata',
-        'password'     => 'dispermades-batang312',
+        'password'     => 'dispermades_batang321',
         'database'     => 'dispermades_batang',
 
         'DBDriver'     => 'MySQLi',
