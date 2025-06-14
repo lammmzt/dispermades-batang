@@ -17,7 +17,7 @@ class Referensi extends BaseController
         $data['active'] = 'referensi_jenis_surat'; // set active menu
         $data['validation'] = \Config\Services::validation(); // set validasi
 
-        return view('Admin/jenis_surat/Referensi/index', $data); // tampilkan view referensi jenis surat
+        return view('Admin/Referensi/index', $data); // tampilkan view referensi jenis surat
     }
 
     public function saveReferensi(){
@@ -42,7 +42,7 @@ class Referensi extends BaseController
         ];
         $model->save($data); // insert data referensi jenis surat
         session()->setFlashdata('success', 'Data Referensi Jenis Surat berhasil ditambahkan'); // set flashdata success
-        return redirect()->to('/Jenis_surat/Referensi'); // redirect ke halaman referensi jenis surat
+        return redirect()->to('Referensi'); // redirect ke halaman referensi jenis surat
     }
 
     public function updateReferensi() // mengupdate data referensi jenis surat
@@ -81,6 +81,6 @@ class Referensi extends BaseController
         ];
         $model->update($id_referensi_jenis_surat, $data); // update data referensi jenis surat
         session()->setFlashdata('success', 'Data Referensi Jenis Surat berhasil diubah'); // set flashdata success
-        return redirect()->to('/Jenis_surat/Referensi'); // redirect ke halaman referensi jenis surat
+        return redirect()->to('Referensi'); // redirect ke halaman referensi jenis surat
     }
 }

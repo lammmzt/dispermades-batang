@@ -26,6 +26,7 @@ class External extends BaseController
         // dd($this->request->getPost());
         $validation->setRules([ // set rules validasi
             'nama_external' => 'required',
+            'nama_alias_external' => 'required',
             'kota_external' => 'required',
             'alamat_external' => 'required',
             'kota_external' => 'required',
@@ -61,6 +62,7 @@ class External extends BaseController
             'id_external' => Uuid::uuid4()->toString(),
             'id_user' => $id_user,
             'nama_external' => ucwords($this->request->getPost('nama_external')),
+            'nama_alias_external' => ucwords($this->request->getPost('nama_external')),
             'kota_external' => $this->request->getPost('kota_external'),
             'kota_external' => $this->request->getPost('kota_external'),
             'alamat_external' => $this->request->getPost('alamat_external'),
@@ -83,6 +85,7 @@ class External extends BaseController
         $validation->setRules([ // set rules validasi
             'nama_external' => 'required', // nama external wajib diisi
             'kota_external' => 'required',
+            'nama_alias_external' => 'required',
             'kota_external' => 'required',
             'alamat_external' => 'required',
             'no_tlp_external' => 'required',
@@ -115,6 +118,7 @@ class External extends BaseController
             'nama_external' => ucwords($this->request->getPost('nama_external')),
             'kota_external' => $this->request->getPost('kota_external'),
             'kota_external' => $this->request->getPost('kota_external'),
+            'nama_alias_external' => ucwords($this->request->getPost('nama_alias_external')),
             'alamat_external' => $this->request->getPost('alamat_external'),
             'no_tlp_external' => $this->request->getPost('no_tlp_external'),
             'updated_at' => date('Y-m-d H:i:s'),

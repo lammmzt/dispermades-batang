@@ -7,7 +7,7 @@ class externalModel extends Model
 {
     protected $table = 'external';
     protected $primaryKey = 'id_external';
-    protected $allowedFields = ['id_external', 'id_user', 'nama_external', 'kota_external', 'alamat_external', 'status_external', 'no_tlp_external','created_at', 'updated_at'];
+    protected $allowedFields = ['id_external', 'id_user', 'nama_external', 'nama_alias_external', 'kota_external', 'alamat_external', 'status_external', 'no_tlp_external','created_at', 'updated_at'];
 
     public function getexternal($id = false)
     {
