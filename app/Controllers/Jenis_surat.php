@@ -14,6 +14,10 @@ class Jenis_surat extends BaseController
         $data['jenis_surat'] = $jenisSuratModel->findAll(); // mengambil semua data jenis surat
         $data['title'] = 'Jenis Surat'; // set judul halaman
         $data['active'] = 'Jenis_surat'; // set active menu 
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Jenis Surat', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
          
         return view('Admin/jenis_surat/index', $data); // tampilkan view jenis surat
@@ -25,6 +29,11 @@ class Jenis_surat extends BaseController
         $data['referensi'] = $referensiJenisSuratModel->getRefereni(); // mengambil semua data referensi jenis surat
         $data['title'] = 'Tambah Jenis Surat'; // untuk set judul halaman
         $data['active'] = 'Jenis_surat';  // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Jenis Surat', 'url' => 'Jenis_surat'], // set breadcrumb parent
+            ['label' => '/ Tambah', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
 
         return view('Admin/jenis_surat/tambah', $data); // tampilkan view tambah jenis surat
@@ -90,6 +99,11 @@ class Jenis_surat extends BaseController
         $data['referensi_jenis_surat'] = $referensiJenisSuratModel->getRefereni(); // mengambil semua data referensi jenis surat
         $data['jenis_surat'] = $model->find($id); // mengambil data jenis surat berdasarkan id
         $data['title'] = 'Edit Jenis Surat'; // set judul halaman
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Jenis Surat', 'url' => 'Jenis_surat'], // set breadcrumb parent
+            ['label' => '/ Edit', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['active'] = 'Jenis_surat'; // set active menu
 
         // dd($data);

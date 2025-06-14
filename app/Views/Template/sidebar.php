@@ -147,7 +147,7 @@
                         class="nav-link <?= $active == 'Laporan_surat_masuk' || $active == 'Laporan_surat_keluar' ? 'active' : ''; ?>">
                         <i class="nav-icon bi bi-bar-chart-line-fill"></i>
                         <p>
-                            Surat
+                            Laporan Surat
                             <i class="nav-arrow bi bi-chevron-right"></i>
                         </p>
                     </a>

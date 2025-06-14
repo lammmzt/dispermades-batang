@@ -14,7 +14,11 @@ class Surat_masuk extends BaseController
         $suratMasukModel = new suratMasukModel(); // membuat objek model surat masuk
         $data['surat_masuk'] = $suratMasukModel->getSuratMasuk(); // mengambil semua data surat masuk
         $data['title'] = 'Surat Masuk'; // set judul halaman 
-        $data['active'] = 'surat_masuk'; // set active menu
+        $data['active'] = 'Surat_masuk'; // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Masuk', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
         
         return view('Admin/surat_masuk/index', $data); // tampilkan view surat masuk
@@ -24,7 +28,12 @@ class Surat_masuk extends BaseController
     { 
         $pegawaiModel = new pegawaiModel(); // membuat objek model pegawai
         $data['title'] = 'Tambah Surat Masuk'; // untuk set judul halaman
-        $data['active'] = 'surat_masuk'; // set active menu  
+        $data['active'] = 'Surat_masuk'; // set active menu  
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Masuk', 'url' => 'Surat_masuk'], // set breadcrumb parent
+            ['label' => '/ Tambah', 'url' => ''], // set breadcrumb child
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
         $data['pegawai'] = $pegawaiModel->where('status_pegawai', '1')->findAll(); // mengambil semua data pegawai yang statusnya aktif
 
@@ -99,7 +108,12 @@ class Surat_masuk extends BaseController
         $data['surat_masuk'] = $model->find($id); // mengambil data surat masuk berdasarkan id
         $data['pegawai'] = $pegawaiModel->where('status_pegawai', '1')->findAll(); // mengambil semua data pegawai yang statusnya aktif
         $data['disposisi'] = $disposisiModel->getDisposisiBySurat($id); // mengambil data disposisi berdasarkan id surat masuk
-        $data['active'] = 'surat_masuk'; // set active menu
+        $data['active'] = 'Surat_masuk'; // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Masuk', 'url' => 'Surat_masuk'], // set breadcrumb parent
+            ['label' => '/ Edit', 'url' => ''], // set breadcrumb child
+        ]; //
         $data['validation'] = \Config\Services::validation(); // set validasi
         // dd($data);
         return view('Admin/surat_masuk/edit', $data); // tampilkan view edit surat masuk
@@ -197,7 +211,12 @@ class Surat_masuk extends BaseController
         $data['surat_masuk'] = $data_surat_masuk;
         $data['pegawai'] = $pegawaiModel->where('status_pegawai', '1')->findAll(); // mengambil semua data pegawai yang statusnya aktif
         $data['disposisi'] = $disposisiModel->getDisposisiBySurat($id); // mengambil data disposisi berdasarkan id surat masuk
-        $data['active'] = 'surat_masuk'; // set active menu
+        $data['active'] = 'Surat_masuk'; // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Masuk', 'url' => 'Surat_masuk'], // set breadcrumb parent
+            ['label' => '/ Detail', 'url' => ''], // set breadcrumb child
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
         // dd($data);
         return view('Admin/surat_masuk/detail', $data); // tampilkan view edit surat masuk
@@ -219,6 +238,10 @@ class Surat_masuk extends BaseController
         $data['surat_masuk'] = $data_disposisi; // mengambil semua data surat masuk
         $data['title'] = 'Disposisi'; // set judul halaman 
         $data['active'] = 'Disposisi'; // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Disposisi', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
         
         return view('User/Disposisi/index', $data); // tampilkan view surat masuk

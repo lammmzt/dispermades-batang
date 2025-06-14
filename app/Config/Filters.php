@@ -12,6 +12,11 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\PageCache;
 use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
+use App\Filters\Middleware;
+use App\Filters\filterAdmin;
+use App\Filters\filterKadin;
+use App\Filters\filterPegawai;
+use App\Filters\filterExternal;
 
 class Filters extends BaseFilters
 {
@@ -34,6 +39,11 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'filterAdmin' => filterAdmin::class,
+        'Middleware' => Middleware::class,
+        'filterKadin' => filterKadin::class,
+        'filterPegawai' => filterPegawai::class,
+        'filterExternal' => filterExternal::class,
     ];
 
     /**
@@ -69,13 +79,23 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
+           'Middleware' => ['except' => ['Auth','Auth/*',]],
             // 'csrf',
             // 'invalidchars',
         ],
         'after' => [
-            // 'honeypot',
-            // 'secureheaders',
+            'filterAdmin' => ['except' => [ 
+                '/', 'Auth/logout', 'Auth/login','Data_instansi', 'Data_instansi/*', 'External', 'External/*', 'Home', 'Home/*', 'Jenis_surat', 'Jenis_surat/*', 'Referensi', 'Referensi/*', 'Pegawai', 'Pegawai/*', 'Surat_masuk', 'Surat_masuk/*', 'Surat_keluar', 'Surat_keluar/*', 'Users', 'Users/*', 'Laporan', 'Laporan/*', 
+            ]],
+            'filterKadin' => ['except' => [ 
+                '/', 'Auth/logout', 'Auth/login', 'Home', 'Home/*', 'Jenis_surat', 'Jenis_surat/*', 'Surat_masuk', 'Surat_masuk/*', 'Surat_keluar', 'Surat_keluar/*', 'Users', 'Users/*', 'Surat', 'Surat/*', 'Laporan', 'Laporan/*',
+            ]],
+            'filterPegawai' => ['except' => [ 
+                '/', 'Auth/logout', 'Auth/login', 'Home', 'Home/*', 'Surat', 'Surat/*', 'Disposisi', 'Disposisi/*',
+            ]],
+            'filterExternal' => ['except' => [ 
+                '/', 'Auth/logout', 'Auth/login', 'Home', 'Home/*', 'Surat', 'Surat/*', 
+            ]],
         ],
     ];
 
