@@ -28,9 +28,9 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'dispermades_batang',
+        // 'username'     => 'root',
+        // 'password'     => '',
+        // 'database'     => 'dispermades_batang',
 
         'username'     => 'dispermades-bata',
         'password'     => 'dispermades-batang312',
