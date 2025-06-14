@@ -54,7 +54,7 @@
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">Home</li>
                 <li class="nav-item">
-                    <a href="<?= base_url('/'); ?>" class="nav-link">
+                    <a href="<?= base_url('/'); ?>" class="nav-link <?= $active == 'Dashboard' ? 'active' : ''; ?>">
                         <i class="nav-icon bi bi-speedometer"></i>
                         <p>Dashboard</p>
                     </a>
@@ -69,9 +69,9 @@
                     </a>
                 </li>
                 <li
-                    class="nav-item  <?= $active == 'referensi_jenis_surat' || $active == 'jenis_surat' ? 'menu-open' : ''; ?>">
+                    class="nav-item  <?= $active == 'referensi_jenis_surat' || $active == 'Jenis_surat' ? 'menu-open' : ''; ?>">
                     <a href="#"
-                        class="nav-link <?= $active == 'referensi_jenis_surat' || $active == 'jenis_surat' ? 'active' : ''; ?>">
+                        class="nav-link <?= $active == 'referensi_jenis_surat' || $active == 'Jenis_surat' ? 'active' : ''; ?>">
                         <i class="nav-icon bi bi-envelope-fill"></i>
                         <p>
                             Format Surat
@@ -87,7 +87,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('Jenis_surat'); ?>"
+                            <a href="<?= base_url('jenis_surat'); ?>"
                                 class="nav-link <?= $active == 'Jenis_surat' ? 'active' : ''; ?>">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Jenis Surat</p>

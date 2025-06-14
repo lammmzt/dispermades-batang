@@ -36,7 +36,7 @@
                     data-bs-toggle="data-table">
                     <thead>
                         <tr class="ligth">
-                            <th>#</th>
+                            <th class="text-center">#</th>
                             <th>Username</th>
                             <th>Nama external</th>
                             <th>Nama alias</th>
@@ -52,7 +52,7 @@
                         ?>
                         <?php foreach($external as $ext): ?>
                         <tr>
-                            <td><?= $no++; ?></td>
+                            <td class="text-center"><?= $no++; ?></td>
                             <td><?= $ext['username']; ?></td>
                             <td><?= $ext['nama_external']; ?></td>
                             <td><?= $ext['nama_alias_external']; ?></td>

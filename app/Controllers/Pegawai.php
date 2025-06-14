@@ -12,6 +12,10 @@ class Pegawai extends BaseController
         $PegawaiModel = new pegawaiModel(); // membuat objek model pegawai
         $data['title'] = 'Data Pegawai'; // set judul halaman
         $data['active'] = 'Pegawai';    // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Pegawai', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['pegawai'] = $PegawaiModel->getPegawai(); // mengambil semua data pegawai
         $data['validation'] = \Config\Services::validation(); // set validasi
         

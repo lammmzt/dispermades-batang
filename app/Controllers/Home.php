@@ -47,7 +47,7 @@ class Home extends BaseController
         $data['total_surat_keluar'] = $suratKeluarModel->countAll(); // hitung total surat keluar
         $data['total_surat_masuk'] = $suratMasukModel->countAll(); // hitung total surat masuk
         $data['title'] = 'Dashboard'; // set judul halaman
-        $data['active'] = 'dashboard'; // set active menu
+        $data['active'] = 'Dashboard'; // set active menu
         $data['breadcrumb'] = [
             ['label' => 'Dashboard', 'url' => ''], // set breadcrumb parent
         ]; // set breadcrumb

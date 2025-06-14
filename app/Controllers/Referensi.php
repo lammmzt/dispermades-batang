@@ -15,6 +15,10 @@ class Referensi extends BaseController
         $data['referensi'] = $model->getRefereni(); // mengambil semua data jenis surat
         $data['title'] = 'Referensi Jenis Surat'; // set judul halaman
         $data['active'] = 'referensi_jenis_surat'; // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Referensi', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
 
         return view('Admin/Referensi/index', $data); // tampilkan view referensi jenis surat

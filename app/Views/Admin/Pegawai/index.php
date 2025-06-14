@@ -36,7 +36,7 @@
                     data-bs-toggle="data-table">
                     <thead>
                         <tr class="ligth">
-                            <th>#</th>
+                            <th class="text-center">#</th>
                             <th>Username</th>
                             <th>Nama Pegawai</th>
                             <th>NIP</th>

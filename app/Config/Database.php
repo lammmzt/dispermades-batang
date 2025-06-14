@@ -27,9 +27,15 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
+        
         'username'     => 'root',
         'password'     => '',
         'database'     => 'dispermades_batang',
+
+        'username'     => 'dispermades-bata',
+        'password'     => 'dispermades-batang312',
+        'database'     => 'dispermades_batang',
+
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,

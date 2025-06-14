@@ -10,11 +10,14 @@ class External extends BaseController
     public function index() // menampilkan data external
     {
         $externalModel = new externalModel(); // membuat objek model external
-        $data['title'] = 'External'; // set judul halaman
+        $data['title'] = 'Data External'; // set judul halaman
         $data['active'] = 'External';    // set active menu
         $data['external'] = $externalModel->getexternal(); // mengambil semua data external
         $data['validation'] = \Config\Services::validation(); // set validasi
-        
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ External', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         return view('Admin/External/index', $data); // tampilkan view external
     }
 
