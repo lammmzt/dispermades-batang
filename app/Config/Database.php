@@ -28,13 +28,13 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'dispermades_batang',
-
-        // 'username'     => 'dispermades-bata',
-        // 'password'     => 'dispermades_batang321',
+        // 'username'     => 'root',
+        // 'password'     => '',
         // 'database'     => 'dispermades_batang',
+
+        'username'     => 'dispermades-bata',
+        'password'     => 'dispermades_batang321',
+        'database'     => 'dispermades_batang',
 
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
