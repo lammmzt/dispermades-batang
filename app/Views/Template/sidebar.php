@@ -59,7 +59,9 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-
+                <?php 
+                if(session()->get('role') == 'Admin'):
+                ?>
                 <li class="nav-header">Master Data</li>
                 <li class="nav-item ">
                     <a href="<?= base_url('Data_instansi'); ?>"
@@ -111,6 +113,21 @@
                     </a>
                 </li>
 
+                <?php
+                endif;
+                if(session()->get('role') == 'Kadin' ):
+                ?>
+                <li class="nav-header">Master Data</li>
+                <li class="nav-item ">
+                    <a href="<?= base_url('Users'); ?>" class="nav-link  <?= $active == 'Users' ? 'active' : ''; ?>">
+                        <i class="nav-icon bi bi-person-fill"></i>
+                        <p>Data Users</p>
+                    </a>
+                </li>
+                <?php 
+                endif;
+                if(session()->get('role') == 'Admin'  || session()->get('role') == 'Kadin' ):
+                ?>
                 <li class="nav-header">Persuratan</li>
                 <li class="nav-item  <?= $active == 'Surat_masuk' || $active == 'Surat_keluar' ? 'menu-open' : ''; ?>">
                     <a href="#"
@@ -168,6 +185,49 @@
                         </li>
                     </ul>
                 </li>
+                <?php
+                endif;
+                if(session()->get('role') == 'Pegawai' || session()->get('role') == 'External' ):
+                ?>
+                <li class="nav-header">Persuratan</li>
+                <li class="nav-item  <?= $active == 'Surat' || $active == 'Disposisi' ? 'menu-open' : ''; ?>">
+                    <a href="#" class="nav-link <?= $active == 'Surat' || $active == 'Disposisi' ? 'active' : ''; ?>">
+                        <i class="nav-icon bi bi-envelope-paper-fill"></i>
+                        <p>
+                            Surat
+                            <span class="nav-badge badge text-bg-secondary me-3">6</span>
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('Surat'); ?>"
+                                class="nav-link <?= $active == 'Surat' ? 'active' : ''; ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Surat Masuk</p>
+                            </a>
+                        </li>
+                        <?php 
+                        if(session()->get('role') == 'Pegawai' ):
+                        ?>
+                        <li class="nav-item">
+                            <a href="<?= base_url('Disposisi'); ?>"
+                                class="nav-link <?= $active == 'Disposisi' ? 'active' : ''; ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Disposisi</p>
+                            </a>
+                        </li>
+                        <?php
+                        endif;
+                        ?>
+                    </ul>
+                </li>
+                <?php
+                    endif;
+                ?>
+
             </ul>
             <!--end::Sidebar Menu-->
         </nav>

@@ -1,58 +1,34 @@
-<?= $this->extend('Templates/index') ?>
-<?= $this->section('konten') ?>
+<?= $this->extend('Template/index') ?>
+<?= $this->section('content') ?>
 <div class="col-sm-12">
     <div class="card">
-        <div class="card-header d-flex justify-content-between">
+        <div class="card-header">
             <div class="header-title">
-                <h4 class="card-title">Edit Surat Keluar</h4>
+                <h4 class="card-title fw-bold">Edit Surat Keluar</h4>
             </div>
-            <a href="<?= base_url('Surat_keluar'); ?>" class="btn btn-secondary btn-sm">
-                <svg class="icon-32" width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </a>
+            <div class="header-title">
+                <a href="<?= base_url('Surat_keluar'); ?>" class="btn btn-primary btn-md align-items-center float-end">
+                    Kembali
+                </a>
+            </div>
+
         </div>
         <div class="card-body px-0">
 
-            <div class="bd-example mx-3">
-                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                    </symbol>
-                    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-                    </symbol>
-                    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                    </symbol>
-                </svg>
+            <div class="row m-2">
+                <div class="col-12">
+                    <?php if(session()->getFlashdata('success')): ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Selamat!</strong> <?= session()->getFlashdata('success'); ?>.
+                    </div>
 
-                <?php if(session()->getFlashdata('success')): ?>
-                <div class="alert alert-success d-flex align-items-center" role="alert">
-                    <svg class="bi flex-shrink-0 me-2" width="24" height="24">
-                        <use xlink:href="#check-circle-fill" />
-                    </svg>
-                    <div>
-                        <strong>Berhasil!</strong> <?= session()->getFlashdata('success'); ?>
+                    <?php endif; ?>
+                    <?php if(session()->getFlashdata('errors')): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Gagal!</strong> <?= session()->getFlashdata('errors'); ?>.
                     </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
-                <?php if(session()->getFlashdata('errors')): ?>
-                <div class="alert alert-danger d-flex align-items-center" role="alert">
-                    <svg class="bi flex-shrink-0 me-2" width="24" height="24">
-                        <use xlink:href="#exclamation-triangle-fill" />
-                    </svg>
-                    <div>
-                        <strong>Terjadi Kesalahan!</strong>
-                    </div>
-                </div>
-                <?php endif; ?>
             </div>
             <div class="mt-2 mx-3">
                 <!-- <div class="row mb-3">
@@ -71,7 +47,6 @@
                         </div>
                     </form>
                 </div> -->
-                <hr style="border-top: 1px solid; width: 100%; margin: 1rem 0;">
                 <form action="<?= base_url('Surat_keluar/updateDataIsian'); ?>" method="post"
                     enctype="multipart/form-data" class="needs-validation" novalidate>
                     <?= csrf_field(); ?>
@@ -355,7 +330,7 @@
     </div>
 </div>
 
-<?= $this->endSection('konten'); ?>
+<?= $this->endSection('content'); ?>
 <?= $this->section('script'); ?>
 <script style="text/javascript">
 $(document).ready(function() {

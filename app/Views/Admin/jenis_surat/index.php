@@ -57,7 +57,7 @@
                                     <a class="btn btn-sm btn-icon btn-warning" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Edit"
                                         href="<?= base_url('Jenis_surat/edit/'.$jns['id_jenis_surat']); ?>">
-                                        Proses <i class="bi bi-pencil-square"></i>
+                                        Edit <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <a class="btn btn-sm btn-icon btn-secondary" title="Copy" data-bs-toggle="modal"
                                         href="#" data-bs-target="#copyModal<?= $jns['id_jenis_surat']; ?>">

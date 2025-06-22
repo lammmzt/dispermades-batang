@@ -7,7 +7,7 @@ use App\Models\jenisSuratModel;
 use App\Models\detailJenisSuratModel;
 use App\Models\detailSuratKeluarModel;
 use App\Models\externalModel;
-use App\Models\Data_instansiModel;
+use App\Models\dataInstansiModel;
 use Ramsey\Uuid\Uuid;
 use Mpdf\Mpdf; 
 use Endroid\QrCode\Writer\PngWriter;
@@ -155,7 +155,7 @@ class Surat_keluar extends BaseController
         $detailJenisSuratModel = new detailJenisSuratModel(); // membuat objek model detail jenis surat
         $suratKeluarModel = new suratKeluarModel(); // membuat objek model surat keluar
         $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
-        $dataInstansiModel = new Data_instansiModel();
+        $dataInstansiModel = new dataInstansiModel();
         $data_surat_keluar = $suratKeluarModel->getSuratkeluar($id)->first(); // mengambil data surat keluar berdasarkan id
         
         $id_jenis_surat = $data_surat_keluar['id_jenis_surat']; // set id jenis surat keluar
@@ -266,7 +266,7 @@ class Surat_keluar extends BaseController
         $detailJenisSuratModel = new detailJenisSuratModel(); // membuat objek model detail jenis surat
         $suratKeluarModel = new suratKeluarModel(); // membuat objek model surat keluar
         $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
-        $dataInstansiModel = new Data_instansiModel();
+        $dataInstansiModel = new dataInstansiModel();
         $data_surat_keluar = $suratKeluarModel->getSuratkeluar($id)->first(); // mengambil data surat keluar berdasarkan id
         
         $id_jenis_surat = $data_surat_keluar['id_jenis_surat']; // set id jenis surat keluar
@@ -319,7 +319,7 @@ class Surat_keluar extends BaseController
         $detailJenisSuratModel = new detailJenisSuratModel();
         $suratKeluarModel = new suratKeluarModel();
         $detailSuratKeluar = new detailSuratKeluarModel();
-        $dataInstansiModel = new Data_instansiModel();
+        $dataInstansiModel = new dataInstansiModel();
     
         $dataInstansi = $dataInstansiModel->first();
         $data_surat_keluar = $suratKeluarModel->getSuratkeluar($id)->first();
@@ -371,7 +371,7 @@ class Surat_keluar extends BaseController
         $detailJenisSuratModel = new detailJenisSuratModel(); // membuat objek model detail jenis surat
         $suratKeluarModel = new suratKeluarModel(); // membuat objek model surat keluar
         $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
-        $dataInstansiModel = new Data_instansiModel();
+        $dataInstansiModel = new dataInstansiModel();
         $data_surat_keluar = $suratKeluarModel->getSuratkeluar($id)->first(); // mengambil data surat keluar berdasarkan id
         
         $id_jenis_surat = $data_surat_keluar['id_jenis_surat']; // set id jenis surat keluar
@@ -493,7 +493,7 @@ class Surat_keluar extends BaseController
         $detailJenisSuratModel = new detailJenisSuratModel(); // membuat objek model detail jenis surat
         $suratKeluarModel = new suratKeluarModel(); // membuat objek model surat keluar
         $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
-        $dataInstansiModel = new Data_instansiModel();
+        $dataInstansiModel = new dataInstansiModel();
         $data_surat_keluar = $suratKeluarModel->getSuratkeluar($id)->first(); // mengambil data surat keluar berdasarkan id
         
         $id_jenis_surat = $data_surat_keluar['id_jenis_surat']; // set id jenis surat keluar
@@ -570,7 +570,7 @@ class Surat_keluar extends BaseController
             $jenisSuratModel = new jenisSuratModel(); // membuat objek model jenis surat
             $detailJenisSuratModel = new detailJenisSuratModel(); // membuat objek model detail jenis surat
             $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
-            $dataInstansiModel = new Data_instansiModel();
+            $dataInstansiModel = new dataInstansiModel();
             $bulan_indo = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']; // array bulan indo
             
             $data_surat_keluar = $suratKeluarModel->getSuratkeluar($id_surat_keluar)->first(); // mengambil data surat keluar berdasarkan id
@@ -675,7 +675,7 @@ class Surat_keluar extends BaseController
         $detailJenisSuratModel = new detailJenisSuratModel(); // membuat objek model detail jenis surat
         $suratKeluarModel = new suratKeluarModel(); // membuat objek model surat keluar
         $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
-        $dataInstansiModel = new Data_instansiModel();
+        $dataInstansiModel = new dataInstansiModel();
         $dataDetailSurat = $detailSuratKeluar->getDetailSuratKeluar($id); // mengambil data detail surat keluar berdasarkan id
         if($dataDetailSurat == null || $dataDetailSurat == ''){ // jika data detail surat keluar tidak ada
             return redirect()->to('Surat'); // redirect ke halaman surat keluar
@@ -735,7 +735,7 @@ class Surat_keluar extends BaseController
         $detailJenisSuratModel = new detailJenisSuratModel(); // membuat objek model detail jenis surat
         $suratKeluarModel = new suratKeluarModel(); // membuat objek model surat keluar
         $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
-        $dataInstansiModel = new Data_instansiModel();
+        $dataInstansiModel = new dataInstansiModel();
         $dataDetailSurat = $detailSuratKeluar->getDetailSuratKeluar($id); // mengambil data detail surat keluar berdasarkan id
         $data_surat_keluar = $suratKeluarModel->getSuratkeluar($dataDetailSurat['id_surat_keluar'])->first(); // mengambil data surat keluar berdasarkan id
         

@@ -1,19 +1,16 @@
-<?= $this->extend('Templates/index') ?>
-<?= $this->section('konten') ?>
+<?= $this->extend('Template/index') ?>
+<?= $this->section('content') ?>
 <div class="col-sm-12">
     <div class="card">
-        <div class="card-header d-flex justify-content-between">
+        <div class="card-header">
             <div class="header-title">
-                <h4 class="card-title">Detail Surat Keluar</h4>
+                <h4 class="card-title fw-bold">Detail Surat Keluar</h4>
             </div>
-            <a href="<?= base_url('Surat_keluar'); ?>" class="btn btn-secondary btn-sm">
-                <svg class="icon-32" width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </a>
+            <div class="header-title">
+                <a href="<?= base_url('Surat_keluar'); ?>" class="btn btn-primary btn-md align-items-center float-end">
+                    Kembali
+                </a>
+            </div>
         </div>
         <div class="card-body px-0">
 
@@ -291,7 +288,7 @@
         </div>
     </div>
 </div>
-<?= $this->endSection('konten'); ?>
+<?= $this->endSection('content'); ?>
 <?= $this->section('script'); ?>
 <script style="text/javascript">
 $(document).ready(function() {
