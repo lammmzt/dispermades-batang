@@ -33,7 +33,6 @@ class suratMasukModel extends Model
         return $this
         ->select('surat_masuk.*, users.nama_user')
         ->join('users', 'users.id_user = surat_masuk.id_user')
-        // where created_at is between startDate and endDate
         ->where('surat_masuk.created_at >=', $startDate)
         ->where('surat_masuk.created_at <=', $endDate)
         ->orderBy('surat_masuk.created_at', 'DESC')

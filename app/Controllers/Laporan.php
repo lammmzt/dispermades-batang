@@ -79,7 +79,7 @@ class Laporan extends BaseController
         $data['active'] = 'Laporan_surat_masuk'; // Set menu aktif
         $data['tanggal_awal'] = $tanggalAwal; // Set tanggal awal ke data array
         $data['tanggal_akhir'] = $tanggalAkhir; // Set tanggal akhir ke data array
-
+        // dd($data);
         return view('Admin/Laporan/Surat_masuk', $data);
     }
 

@@ -34,6 +34,10 @@ class Surat_keluar extends BaseController
         $data['surat_keluar'] = $data_surat_keluar; // mengambil semua data surat keluar
         $data['title'] = 'Surat keluar'; // set judul halaman 
         $data['active'] = 'Surat_keluar'; // set active menu
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Keluar', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
         
         return view('Admin/surat_keluar/index', $data); // tampilkan view surat keluar
@@ -56,6 +60,11 @@ class Surat_keluar extends BaseController
         $pegawaiModel = new jenissuratModel(); // membuat objek model jenis surat
         $data['title'] = 'Tambah Surat keluar'; // untuk set judul halaman
         $data['active'] = 'Surat_keluar'; // set active menu  
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Keluar', 'url' => 'Surat_keluar'], // set breadcrumb parent
+            ['label' => '/ Tambah', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['jenis_surat'] = $jenisSuratModel->findAll(); // mengambil semua data jenis surat yang statusnya aktif
         $data['data_jenis_surat'] = $data_jenis_surat; // set jenis surat keluar
         $data['dataDetailJenisSurat'] = $dataDetailJenisSurat; // set data detail jenis surat keluar
@@ -189,6 +198,11 @@ class Surat_keluar extends BaseController
         $data['surat_keluar'] = $data_surat_keluar; // set data surat keluar
         $data['data_instansi'] = $dataInstansi; // set data instansi
         $data['template'] = $template; // set template surat
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Keluar', 'url' => 'Surat_keluar'], // set breadcrumb parent
+            ['label' => '/ Proses', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['detail_surat_keluar'] = $detailSuratKeluar->getDetailSuratKeluar($id); // mengambil data detail surat keluar berdasarkan id
         $data['dataDetailJenisSurat'] = $dataDetailJenisSurat; // set data detail jenis surat keluar
         $data['id_jenis_surat'] = $id_jenis_surat; // set id jenis surat keluar
@@ -305,6 +319,11 @@ class Surat_keluar extends BaseController
         $data['surat_keluar'] = $data_surat_keluar; // set data surat keluar
         $data['data_instansi'] = $dataInstansi; // set data instansi
         $data['template'] = $template; // set template surat
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Keluar', 'url' => 'Surat_keluar'], // set breadcrumb parent
+            ['label' => '/ Preview', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['detail_surat_keluar'] = $detailSuratKeluar->getDetailSuratKeluarByIdSuratKeluar($id); // mengambil data detail surat keluar berdasarkan id
         $data['dataDetailJenisSurat'] = $dataDetailJenisSurat; // set data detail jenis surat keluar
         $data['id_jenis_surat'] = $id_jenis_surat; // set id jenis surat keluar
@@ -421,6 +440,11 @@ class Surat_keluar extends BaseController
         $data['surat_keluar'] = $data_surat_keluar; // set data surat keluar
         $data['data_instansi'] = $dataInstansi; // set data instansi
         $data['template'] = $template; // set template surat
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Keluar', 'url' => 'Surat_keluar'], // set breadcrumb parent
+            ['label' => '/ Detail', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['detail_surat_keluar'] = $dataDetailSurat; // mengambil data detail surat keluar berdasarkan id
         $data['dataDetailJenisSurat'] = $dataDetailJenisSurat; // set data detail jenis surat keluar
         $data['id_jenis_surat'] = $id_jenis_surat; // set id jenis surat keluar
@@ -544,6 +568,11 @@ class Surat_keluar extends BaseController
         $data['surat_keluar'] = $data_surat_keluar; // set data surat keluar
         $data['data_instansi'] = $dataInstansi; // set data instansi
         $data['template'] = $template; // set template surat
+        $data['breadcrumb'] = [
+            ['label' => 'Dashboard', 'url' => '/'], // set breadcrumb home
+            ['label' => '/ Surat Keluar', 'url' => 'Surat_keluar'], // set breadcrumb parent
+            ['label' => '/ Proses', 'url' => ''], // set breadcrumb parent
+        ]; // set breadcrumb
         $data['detail_surat_keluar'] = $dataDetailSurat; // mengambil data detail surat keluar berdasarkan id
         $data['dataDetailJenisSurat'] = $dataDetailJenisSurat; // set data detail jenis surat keluar
         $data['id_jenis_surat'] = $id_jenis_surat; // set id jenis surat keluar
@@ -587,8 +616,19 @@ class Surat_keluar extends BaseController
             }else{
                 $no_urut = $no_surat_terbaru['nomor_surat_keluar'] + 1; // set no surat terbaru
             }
-            
-            $no_surat_keluar = $data_surat_keluar['kode_surat'] . '/' . $no_urut;
+            $kode_surat = $data_jenis_surat['kode_surat']; // set
+            $romawi = [
+                1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V',
+                6 => 'VI', 7 => 'VII', 8 => 'VIII', 9 => 'IX', 10 => 'X',
+                11 => 'XI', 12 => 'XII'
+            ];
+            $bulan = date('n', strtotime(date('Y-m-d'))); // set bulan
+            $tahun = date('Y', strtotime(date('Y-m-d'))); // set tahun
+            if ($no_urut) {
+                $no_surat_keluar =  $kode_surat . '/' . $no_urut . '/' . $romawi[$bulan] . '/' . $tahun;
+            } else {
+                $no_surat_keluar =  '-';
+            }
             $template = $data_surat_keluar['template_jenis_surat'];
             $tanggal_surat_keluar = date('Y-m-d'); // set tanggal surat keluar
             // Ambil isian surat keluar (format JSON)

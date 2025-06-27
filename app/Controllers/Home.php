@@ -6,6 +6,7 @@ use App\Models\pegawaiModel;
 use App\Models\externalModel;
 use App\Models\suratKeluarModel;
 use App\Models\suratMasukModel;
+use App\Models\jenisSuratModel;
 class Home extends BaseController
 {  
     public function index(): string // menampilkan halaman dashboard
@@ -15,6 +16,7 @@ class Home extends BaseController
         $externalModel = new externalModel(); // inisialisasi model external
         $suratKeluarModel = new suratKeluarModel(); // inisialisasi model surat keluar
         $suratMasukModel = new suratMasukModel(); // inisialisasi model surat masuk
+        $jenisSuratModel = new jenisSuratModel(); // inisialisasi model jenis surat
         if($this->request->getPost('tahun')){ // if year is selected
             $year = $this->request->getPost('tahun'); // get selected year
         }else{
@@ -37,8 +39,7 @@ class Home extends BaseController
         }
         // dd($data_surat); // debug output untuk data surat per bulan
         $data['total_users'] = $usersModel->countAll(); // hitung total users
-        $data['total_pegawai'] = $pegawaiModel->countAll(); // hitung total pegawai
-        $data['total_external'] = $externalModel->countAll(); // hitung total external
+        $data['total_jenis_surat'] = $jenisSuratModel->countAll(); // hitung total jenis surat
         $data['total_surat_keluar'] = $suratKeluarModel->where('status_surat_keluar', '3')->countAllResults(); // hitung total surat keluar
         $data['total_surat_masuk'] = $suratMasukModel->countAll(); // hitung total surat masuk
         $data['data_surat'] = $data_surat; // set data surat per bulan ke data array

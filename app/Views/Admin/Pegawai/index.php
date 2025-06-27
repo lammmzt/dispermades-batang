@@ -51,7 +51,7 @@
                         ?>
                         <?php foreach($pegawai as $pgw): ?>
                         <tr>
-                            <td><?= $no++; ?></td>
+                            <td class="text-center"><?= $no++; ?></td>
                             <td><?= $pgw['username']; ?></td>
                             <td><?= $pgw['nama_pegawai']; ?></td>
                             <td><?= $pgw['nip_pegawai']; ?></td>

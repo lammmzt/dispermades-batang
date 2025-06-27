@@ -134,6 +134,7 @@
                             <button type="submit" class="btn btn-primary">Ubah</button>
                         </div>
                     </div>
+                </form>
             </div>
         </div>
     </div>

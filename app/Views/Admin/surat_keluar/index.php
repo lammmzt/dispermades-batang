@@ -1,5 +1,39 @@
 <?= $this->extend('Template/index') ?>
 <?= $this->section('content') ?>
+<?php 
+function formatiIndonesia($tanggal)
+{
+    $hari = [
+        'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
+    ];
+    $bulan = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+    $tanggal = strtotime($tanggal);
+    $hariIndo = $hari[date('w', $tanggal)];
+    $tanggalIndo = date('j', $tanggal);
+    $bulanIndo = $bulan[date('n', $tanggal) - 1];
+    $tahunIndo = date('Y', $tanggal);
+    return "$hariIndo, $tanggalIndo $bulanIndo $tahunIndo";
+}
+
+function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat_keluar)
+{
+    $romawi = [
+        1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V',
+        6 => 'VI', 7 => 'VII', 8 => 'VIII', 9 => 'IX', 10 => 'X',
+        11 => 'XI', 12 => 'XII'
+    ];
+    $bulan = date('n', strtotime($tanggal_surat_keluar));
+    $tahun = date('Y', strtotime($tanggal_surat_keluar));
+    if ($nomor_surat_keluar) {
+        return $kode_surat . '/' . $nomor_surat_keluar . '/' . $romawi[$bulan] . '/' . $tahun;
+    } else {
+        return '-';
+    }
+}
+?>
 <div class="col-sm-12">
     <div class="card">
         <div class="card-header">
@@ -59,9 +93,10 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= ($jns['judul_surat_keluar'] != null) ? $jns['judul_surat_keluar'] : '-'; ?></td>
-                            <td><?= ($jns['tanggal_surat_keluar'] != null) ? date('d-m-Y', strtotime($jns['tanggal_surat_keluar'])) : '-'; ?>
+                            <td><?= ($jns['tanggal_surat_keluar'] != null) ?  formatiIndonesia($jns['tanggal_surat_keluar']) : '-'; ?>
                             </td>
-                            <td><?=  ($jns['nomor_surat_keluar'] != null) ? $jns['kode_surat'].'/'.$jns['nomor_surat_keluar'] : '-'; ?>
+                            <td><?=  ($jns['nomor_surat_keluar'] != null) ? formatNomorSuratKeluar($jns['nomor_surat_keluar'], $jns['kode_surat'], $jns['tanggal_surat_keluar']) : '-'; ?>
+                            </td>
                             <td><?= $jns['nama_user']; ?></td>
                             <td><?= ($jns['keterangan_surat_keluar'] != null) ? $jns['keterangan_surat_keluar'] : '-'; ?>
                             <td>
