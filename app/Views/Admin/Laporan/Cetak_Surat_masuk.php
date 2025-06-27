@@ -164,8 +164,8 @@ function formatiIndonesia($tanggal)
                     <?= ($jns['tgl_surat_masuk'] != null) ? formatiIndonesia($jns['tgl_surat_masuk']) : '-'; ?>
                 </td>
                 <td style="text-align: center;"><?= ($jns['no_surat_masuk'] != null) ? $jns['no_surat_masuk'] : '-'; ?>
-                <td><?= ($jns['pengirim_surat_masuk'] != null) ? $jns['pengirim_surat_masuk'] : '-'; ?></td>
                 <td><?= ($jns['perihal_surat_masuk'] != null) ? $jns['perihal_surat_masuk'] : '-'; ?></td>
+                <td><?= ($jns['pengirim_surat_masuk'] != null) ? $jns['pengirim_surat_masuk'] : '-'; ?></td>
                 <td><?= ($jns['ket_surat_masuk'] != null) ? $jns['ket_surat_masuk'] : '-'; ?></td>
                 <td>
                     <?php if($dataDisposisi): ?>
