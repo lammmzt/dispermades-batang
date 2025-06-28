@@ -224,7 +224,7 @@
 
                                     <!-- timeline item -->
                                     <div>
-                                        <i class="timeline-icon bi bi-envelope-check text-bg-success"></i>
+                                        <i class="timeline-icon bi bi-envelope-open text-bg-success"></i>
                                         <div class="timeline-item">
                                             <!-- <span class="time"> <i class="bi bi-clock-fill"></i> 2 days ago </span> -->
                                             <h3 class="timeline-header"><a href="#">
