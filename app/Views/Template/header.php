@@ -15,11 +15,11 @@
         <!--begin::End Navbar Links-->
         <ul class="navbar-nav ms-auto">
             <!--begin::Navbar Search-->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                     <i class="bi bi-search"></i>
                 </a>
-            </li>
+            </li> -->
             <!--end::Navbar Search-->
 
             <!--begin::Fullscreen Toggle-->
