@@ -15,7 +15,7 @@ function formatiIndonesia($tanggal)
     $tanggalIndo = date('j', $tanggal);
     $bulanIndo = $bulan[date('n', $tanggal) - 1];
     $tahunIndo = date('Y', $tanggal);
-    return "$hariIndo, $tanggalIndo $bulanIndo $tahunIndo";
+    return "$tanggalIndo $bulanIndo $tahunIndo";
 }
 
 function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat_keluar)
