@@ -189,46 +189,59 @@
                         <div id="detailDisposisibody" class="accordion-collapse collapse bg-white"
                             aria-labelledby="headingOne" data-bs-parent="#detailDisposisi">
                             <div class="accordion-body bg-white">
-                                <div
-                                    class="iq-timeline m-0 d-flex align-items-center justify-content-between position-relative">
-                                    <ul class="list-inline p-0 m-0 w-100">
-                                        <li>
-                                            <div class="time">
-                                                <span><?= date('Y-m-d', strtotime($row['created_at'])); ?></span>
+                                <div class="timeline">
+                                    <!-- timeline time label -->
+                                    <div class="time-label"><span class="text-bg-primary">
+                                            <?= date('d-M-Y', strtotime($row['created_at'])); ?></span>
+                                    </div>
+                                    <!-- /.timeline-label -->
+                                    <!-- timeline item -->
+                                    <div>
+                                        <i class="timeline-icon bi bi-envelope text-bg-primary"></i>
+                                        <div class="timeline-item">
+                                            <!-- <span class="time"> <i class="bi bi-clock-fill"></i> </span> -->
+                                            <h3 class="timeline-header">
+                                                <a href="#">Admin Dinas</a> Membuat Disposisi
+                                            </h3>
+                                            <div class="timeline-body">
+                                                Disposisi dengan Nomor <strong><?= $row['id_disposisi']; ?></strong>
+                                                dengan prihal <strong><?= $row['perihal_surat_masuk']; ?></strong>
+                                                telah dibuat pada
+                                                <strong><?= date('d-M-Y H:i:s', strtotime($row['created_at'])); ?></strong>
+                                                <br>
+                                                Disposisi ini ditujukan kepada:
+                                                <strong><?= $row['nama_pegawai']; ?></strong>
+                                                (<?= $row['jabatan_pegawai']; ?>)
                                             </div>
-                                            <div class="content">
-                                                <div class="timeline-dots new-timeline-dots"></div>
-                                                <h6 class="mb-1">Admin Dinas</h6>
-                                                <div class="d-inline-block w-100">
-                                                    <p style="text-align: justify;">
-                                                        Disposisi dengan Nomor <?= $row['id_disposisi']; ?>
-                                                        dengan prihal
-                                                        <?= $row['perihal_surat_masuk']; ?> dikirimkan kepada: <b>
-                                                            <?= $row['nama_pegawai']; ?> </b>
-                                                    </p>
-                                                </div>
+
+                                        </div>
+                                    </div>
+                                    <?php if($row['status_disposisi'] == '1'): ?>
+                                    <!-- timeline time label -->
+                                    <div class="time-label"><span class="text-bg-success">
+                                            <?= date('d-M-Y', strtotime($row['updated_at'])); ?></span>
+                                    </div>
+
+                                    <!-- timeline item -->
+                                    <div>
+                                        <i class="timeline-icon bi bi-envelope-check text-bg-success"></i>
+                                        <div class="timeline-item">
+                                            <!-- <span class="time"> <i class="bi bi-clock-fill"></i> 2 days ago </span> -->
+                                            <h3 class="timeline-header"><a href="#">
+                                                    <?= $row['nama_user']; ?></a> Membaca Disposisi
+                                            </h3>
+                                            <div class="timeline-body">
+                                                Disposisi dengan Nomor <strong><?= $row['id_disposisi']; ?></strong>
+                                                telah dibaca pada
+                                                <strong><?= date('d-M-Y H:i:s', strtotime($row['updated_at'])); ?></strong>
+                                                <br>
+                                                Balasan: <strong><?= $row['jawaban_disposisi']; ?></strong>
                                             </div>
-                                        </li>
-                                        <?php if($row['status_disposisi'] == '1'): ?>
-                                        <li>
-                                            <div class="time bg-success">
-                                                <span><?= date('Y-m-d', strtotime($row['updated_at'])); ?></span>
-                                            </div>
-                                            <div class="content">
-                                                <div class="timeline-dots new-timeline-dots border-success"></div>
-                                                <h6 class="mb-1"><?= $row['nama_pegawai']; ?></h6>
-                                                <div class="d-inline-block w-100">
-                                                    <p style="text-align: justify;">
-                                                        Disposisi dengan Nomor <?= $row['id_disposisi']; ?> telah
-                                                        dibaca oleh <?= $row['nama_pegawai']; ?> dengan balasan: <b>
-                                                            <?= $row['jawaban_disposisi']; ?>.</b>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <?php endif; ?>
-                                    </ul>
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
                                 </div>
+
                             </div>
                         </div>
                     </div>

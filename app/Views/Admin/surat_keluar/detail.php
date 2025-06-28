@@ -266,42 +266,65 @@
                         <div id="detailDisposisibody" class="accordion-collapse collapse bg-white"
                             aria-labelledby="headingOne" data-bs-parent="#detailDisposisi">
                             <div class="accordion-body bg-white">
-                                <div
-                                    class="iq-timeline m-0 d-flex align-items-center justify-content-between position-relative">
-                                    <ul class="list-inline p-0 m-0 w-100">
-                                        <li>
-                                            <div class="time">
-                                                <span><?= date('Y-m-d', strtotime($row['tanggal_surat_keluar'])); ?></span>
+                                <div class="timeline">
+                                    <!-- timeline time label -->
+                                    <div class="time-label"><span class="text-bg-primary">
+                                            <?= date('d-M-Y', strtotime($row['tanggal_surat_keluar'])); ?></span></div>
+                                    <!-- /.timeline-label -->
+                                    <!-- timeline item -->
+                                    <div>
+                                        <i class="timeline-icon bi bi-envelope text-bg-primary"></i>
+                                        <div class="timeline-item">
+                                            <!-- <span class="time"> <i class="bi bi-clock-fill"></i> </span> -->
+                                            <h3 class="timeline-header">
+                                                <a href="#"><?= $surat_keluar['nama_user']; ?></a> Membuat Surat Keluar
+                                            </h3>
+                                            <div class="timeline-body">
+                                                <strong>Judul Surat:</strong>
+                                                <?= $surat_keluar['judul_surat_keluar']; ?>
+                                                <br>
+                                                <strong>No Surat:</strong>
+                                                <?= $surat_keluar['kode_surat'].'/'.$surat_keluar['nomor_surat_keluar']; ?>
+                                                <br>
+                                                <strong>Tanggal Surat:</strong>
+                                                <?= date('d-M-Y', strtotime($surat_keluar['tanggal_surat_keluar'])); ?>
+                                                <br>
+                                                <strong>Keterangan:</strong>
+                                                <?= $surat_keluar['keterangan_surat_keluar']; ?>
+                                                <br>
+                                                <strong>Penerima:</strong>
+                                                <?php if($row['id_user'] != null): ?>
+                                                <?= $row['nama_user']; ?>
+                                                <?php else: ?>
+                                                <span class="text-danger">Belum ada penerima</span>
+                                                <?php endif; ?>
+
                                             </div>
-                                            <div class="content">
-                                                <div class="timeline-dots new-timeline-dots"></div>
-                                                <h6 class="mb-1"><?= $surat_keluar['nama_user']; ?></h6>
-                                                <div class="d-inline-block w-100">
-                                                    <p style="text-align: justify;">
-                                                        <?= $row['keterangan_surat_keluar']; ?> dikirim ke
-                                                        <?= $row['nama_user']; ?>
-                                                    </p>
-                                                </div>
+
+                                        </div>
+                                    </div>
+                                    <?php if($row['status_detail_surat_keluar'] == '1'): ?>
+                                    <!-- timeline time label -->
+                                    <div class="time-label"><span class="text-bg-success">
+                                            <?= date('d-M-Y', strtotime($row['updated_at'])); ?></span>
+                                    </div>
+
+                                    <!-- timeline item -->
+                                    <div>
+                                        <i class="timeline-icon bi bi-envelope-check text-bg-success"></i>
+                                        <div class="timeline-item">
+                                            <!-- <span class="time"> <i class="bi bi-clock-fill"></i> 2 days ago </span> -->
+                                            <h3 class="timeline-header"><a href="#">
+                                                    <?= $row['nama_user']; ?></a> Membaca Surat Keluar
+                                            </h3>
+                                            <div class="timeline-body">
+                                                Surat Keluar telah dibaca pada
+                                                <strong><?= date('d-M-Y H:i:s', strtotime($row['updated_at'])); ?></strong>
+                                                <br>
                                             </div>
-                                        </li>
-                                        <?php if($row['status_detail_surat_keluar'] == '1'): ?>
-                                        <li>
-                                            <div class="time bg-success">
-                                                <span><?= date('Y-m-d', strtotime($row['updated_at'])); ?></span>
-                                            </div>
-                                            <div class="content">
-                                                <div class="timeline-dots new-timeline-dots border-success"></div>
-                                                <h6 class="mb-1"><?= $row['nama_user']; ?></h6>
-                                                <div class="d-inline-block w-100">
-                                                    <p style="text-align: justify;">
-                                                        <?= $row['keterangan_detail_surat_keluar']; ?> dibaca oleh
-                                                        <?= $row['nama_user']; ?>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <?php endif; ?>
-                                    </ul>
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
