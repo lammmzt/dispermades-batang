@@ -160,7 +160,6 @@ class Surat_masuk extends BaseController
             'ket_surat_masuk' => $this->request->getPost('ket_surat_masuk'), // mengambil data keterangan surat
             'tipe_file_surat_masuk' => $this->request->getPost('tipe_file_surat_masuk'), // mengambil data tipe file surat
             'file_surat_masuk' => $newName, // set nama file surat
-            'created_at' => date('Y-m-d H:i:s') // set tanggal dibuat
         ]);
         // hapus semua data disposisi berdasarkan id surat masuk
         $disposisiModel->where('id_surat_masuk', $id_surat_masuk)->delete();
