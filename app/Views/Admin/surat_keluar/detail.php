@@ -269,217 +269,218 @@ function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat
                     <label for="id_detail_surat_keluar" class="form-label">No. Surat</label>
                     <input type="text" class="form-control" id="id_detail_surat_keluar" name="id_detail_surat_keluar"
                         value="<?= formatNomorSuratKeluar($surat_keluar['nomor_surat_keluar'], $surat_keluar['kode_surat'], $surat_keluar['tanggal_surat_keluar']); ?>"
-                        </div>
-                    <div class="accordion accordion-flush bg-white" id="detailDisposisi">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed bg-white" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#detailDisposisibody" aria-expanded="true"
-                                    aria-controls="detailDisposisibody">
-                                    <h5 class="card-title">Timeline</h5>
-                                </button>
-                            </h2>
-                            <div id="detailDisposisibody" class="accordion-collapse collapse bg-white"
-                                aria-labelledby="headingOne" data-bs-parent="#detailDisposisi">
-                                <div class="accordion-body bg-white">
-                                    <div class="timeline">
-                                        <!-- timeline time label -->
-                                        <div class="time-label"><span class="text-bg-primary">
-                                                <?= date('d-M-Y', strtotime($row['tanggal_surat_keluar'])); ?></span>
-                                        </div>
-                                        <!-- /.timeline-label -->
-                                        <!-- timeline item -->
-                                        <div>
-                                            <i class="timeline-icon bi bi-envelope text-bg-primary"></i>
-                                            <div class="timeline-item">
-                                                <!-- <span class="time"> <i class="bi bi-clock-fill"></i> </span> -->
-                                                <h3 class="timeline-header">
-                                                    <a href="#"><?= $surat_keluar['nama_user']; ?></a> Membuat Surat
-                                                    Keluar
-                                                </h3>
-                                                <div class="timeline-body">
-                                                    <strong>Judul Surat:</strong>
-                                                    <?= $surat_keluar['judul_surat_keluar']; ?>
-                                                    <br>
-                                                    <strong>No Surat:</strong>
-                                                    <?= formatNomorSuratKeluar($surat_keluar['nomor_surat_keluar'], $surat_keluar['kode_surat'], $surat_keluar['tanggal_surat_keluar']); ?>
-                                                    <br>
-                                                    <strong>Tanggal Surat:</strong>
-                                                    <?= date('d-M-Y', strtotime($surat_keluar['tanggal_surat_keluar'])); ?>
-                                                    <br>
-                                                    <strong>Keterangan:</strong>
-                                                    <?= $surat_keluar['keterangan_surat_keluar']; ?>
-                                                    <br>
-                                                    <strong>Penerima:</strong>
-                                                    <?php if($row['id_user'] != null): ?>
-                                                    <?= $row['nama_user']; ?>
-                                                    <?php else: ?>
-                                                    <span class="text-danger">Belum ada penerima</span>
-                                                    <?php endif; ?>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <?php if($row['status_detail_surat_keluar'] == '1'): ?>
-                                        <!-- timeline time label -->
-                                        <div class="time-label"><span class="text-bg-success">
-                                                <?= date('d-M-Y', strtotime($row['updated_at'])); ?></span>
-                                        </div>
-
-                                        <!-- timeline item -->
-                                        <div>
-                                            <i class="timeline-icon bi bi-envelope-open text-bg-success"></i>
-                                            <div class="timeline-item">
-                                                <!-- <span class="time"> <i class="bi bi-clock-fill"></i> 2 days ago </span> -->
-                                                <h3 class="timeline-header"><a href="#">
-                                                        <?= $row['nama_user']; ?></a> Membaca Surat Keluar
-                                                </h3>
-                                                <div class="timeline-body">
-                                                    Surat Keluar telah dibaca pada
-                                                    <strong><?= date('d-M-Y H:i:s', strtotime($row['updated_at'])); ?></strong>
-                                                    <br>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php endif; ?>
+                        readonly>
+                </div>
+                <div class="accordion accordion-flush bg-white" id="detailDisposisi">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed bg-white" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#detailDisposisibody" aria-expanded="true"
+                                aria-controls="detailDisposisibody">
+                                <h5 class="card-title">Timeline</h5>
+                            </button>
+                        </h2>
+                        <div id="detailDisposisibody" class="accordion-collapse collapse bg-white"
+                            aria-labelledby="headingOne" data-bs-parent="#detailDisposisi">
+                            <div class="accordion-body bg-white">
+                                <div class="timeline">
+                                    <!-- timeline time label -->
+                                    <div class="time-label"><span class="text-bg-primary">
+                                            <?= date('d-M-Y', strtotime($row['tanggal_surat_keluar'])); ?></span>
                                     </div>
+                                    <!-- /.timeline-label -->
+                                    <!-- timeline item -->
+                                    <div>
+                                        <i class="timeline-icon bi bi-envelope text-bg-primary"></i>
+                                        <div class="timeline-item">
+                                            <!-- <span class="time"> <i class="bi bi-clock-fill"></i> </span> -->
+                                            <h3 class="timeline-header">
+                                                <a href="#"><?= $surat_keluar['nama_user']; ?></a> Membuat Surat
+                                                Keluar
+                                            </h3>
+                                            <div class="timeline-body">
+                                                <strong>Judul Surat:</strong>
+                                                <?= $surat_keluar['judul_surat_keluar']; ?>
+                                                <br>
+                                                <strong>No Surat:</strong>
+                                                <?= formatNomorSuratKeluar($surat_keluar['nomor_surat_keluar'], $surat_keluar['kode_surat'], $surat_keluar['tanggal_surat_keluar']); ?>
+                                                <br>
+                                                <strong>Tanggal Surat:</strong>
+                                                <?= date('d-M-Y', strtotime($surat_keluar['tanggal_surat_keluar'])); ?>
+                                                <br>
+                                                <strong>Keterangan:</strong>
+                                                <?= $surat_keluar['keterangan_surat_keluar']; ?>
+                                                <br>
+                                                <strong>Penerima:</strong>
+                                                <?php if($row['id_user'] != null): ?>
+                                                <?= $row['nama_user']; ?>
+                                                <?php else: ?>
+                                                <span class="text-danger">Belum ada penerima</span>
+                                                <?php endif; ?>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <?php if($row['status_detail_surat_keluar'] == '1'): ?>
+                                    <!-- timeline time label -->
+                                    <div class="time-label"><span class="text-bg-success">
+                                            <?= date('d-M-Y', strtotime($row['updated_at'])); ?></span>
+                                    </div>
+
+                                    <!-- timeline item -->
+                                    <div>
+                                        <i class="timeline-icon bi bi-envelope-open text-bg-success"></i>
+                                        <div class="timeline-item">
+                                            <!-- <span class="time"> <i class="bi bi-clock-fill"></i> 2 days ago </span> -->
+                                            <h3 class="timeline-header"><a href="#">
+                                                    <?= $row['nama_user']; ?></a> Membaca Surat Keluar
+                                            </h3>
+                                            <div class="timeline-body">
+                                                Surat Keluar telah dibaca pada
+                                                <strong><?= date('d-M-Y H:i:s', strtotime($row['updated_at'])); ?></strong>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>
-    <?php 
+</div>
+<?php 
 endforeach; 
 endif;
 ?>
-    <?= $this->endSection('content'); ?>
-    <?= $this->section('script'); ?>
-    <script style="text/javascript">
-    $(document).ready(function() {
-        // when change select id_jenis_surat submit form_filter
-        $('#id_jenis_surat').change(function() {
-            $('#form_filter').submit();
-        });
-
-        var file_lampiran = <?= json_encode($surat_keluar['lampiran_surat_keluar']); ?>;
-        var tipe_lampiran = <?= json_encode($surat_keluar['tipe_lampiran_surat_keluar']); ?>;
-        // console.log(file_lampiran, tipe_lampiran);
-        if (file_lampiran != null) {
-            $('#file_lampiran').attr('style', 'display: block');
-            $('#file_lampiran').attr('value', file_lampiran);
-            $('#preview').attr('style', 'display: block');
-            if (tipe_lampiran == 'img') {
-                $('#img-preview').attr('style', 'display: block');
-                $('#img-preview').attr('src', '<?= base_url('Assets/file_lampiran_surat_keluar/') ?>' +
-                    file_lampiran);
-                $('#pdf-preview').attr('style', 'display: none');
-                $('#pdf-preview').attr('src', '');
-            } else if (tipe_lampiran == 'pdf') {
-                $('#pdf-preview').attr('style', 'display: block');
-                $('#pdf-preview').attr('src', '<?= base_url('Assets/file_lampiran_surat_keluar/') ?>' +
-                    file_lampiran);
-                $('#img-preview').attr('style', 'display: none');
-                $('#img-preview').attr('src', '');
-            }
-        }
-
-        function chnageTipe(tipe) {
-
-            if (tipe == 'img') {
-                $('#file_lampiran_container').attr('style', 'display: block');
-                $('#file_lampiran').attr('type', 'file');
-                $('#file_lampiran').attr('accept', 'image/*');
-                $('#file_lampiran').attr('name', 'file_lampiran');
-                $('#file_lampiran').attr('required', 'required');
-                $('#file_lampiran').attr('value', '');
-                $('#file_lampiran').attr('class', 'form-control');
-                $('#file_lampiran').attr('placeholder', 'File Surat');
-                $('#file_lampiran').attr('style', 'display: block');
-                $('#preview').attr('style', 'display: none');
-                $('#pdf-preview').attr('src', '');
-                $('#img-preview').attr('src', '');
-            } else if (tipe == 'pdf') {
-                $('#file_lampiran_container').attr('style', 'display: block');
-                $('#file_lampiran').attr('type', 'file');
-                $('#file_lampiran').attr('accept', 'application/pdf');
-                $('#file_lampiran').attr('name', 'file_lampiran');
-                $('#file_lampiran').attr('required', 'required');
-                $('#file_lampiran').attr('value', '');
-                $('#file_lampiran').attr('class', 'form-control');
-                $('#file_lampiran').attr('placeholder', 'File Surat');
-                $('#file_lampiran').attr('style', 'display: block');
-                $('#preview').attr('style', 'display: none');
-                $('#pdf-preview').attr('src', '');
-                $('#img-preview').attr('src', '');
-            } else {
-                $('#file_lampiran_container').attr('style', 'display: none');
-                $('#file_lampiran').attr('type', 'hidden');
-                $('#file_lampiran').attr('name', '');
-                $('#file_lampiran').attr('required', '');
-                $('#file_lampiran').attr('value', '');
-                $('#file_lampiran').attr('class', '');
-                $('#file_lampiran').attr('placeholder', '');
-                $('#file_lampiran').attr('style', 'display: none');
-                $('#preview').attr('style', 'display: none');
-                $('#img-preview').attr('src', '');
-                $('#pdf-preview').attr('src', '');
-            }
-        }
-        $('#tipe_lampiran_surat_keluar').change(function() {
-            var tipe = $(this).val();
-            chnageTipe(tipe);
-        });
-        $('#file_lampiran').change(function() {
-            var file = $(this).val();
-            var tipe = $('#tipe_lampiran_surat_keluar').val();
-            $('#preview').attr('style', 'display: block');
-            if (tipe == 'img') {
-                $('#pdf-preview').attr('style', 'display: none');
-                $('#pdf-preview').attr('src', '');
-                $('#img-preview').attr('style', 'display: block');
-                $('#img-preview').attr('src', URL.createObjectURL(event.target.files[0]));
-            }
-            if (tipe == 'pdf') {
-                $('#img-preview').attr('style', 'display: none');
-                $('#pdf-preview').attr('style', 'display: block');
-                $('#img-preview').attr('src', '');
-                $('#pdf-preview').attr('src', URL.createObjectURL(event.target.files[0]));
-            }
-        });
+<?= $this->endSection('content'); ?>
+<?= $this->section('script'); ?>
+<script style="text/javascript">
+$(document).ready(function() {
+    // when change select id_jenis_surat submit form_filter
+    $('#id_jenis_surat').change(function() {
+        $('#form_filter').submit();
     });
 
-
-    // ubah data isian_surat_keluar
-    var data_isian_surat = <?= json_encode($surat_keluar['isian_surat_keluar']); ?>;
-    // console.log(data_isian_surat);   
-
-    // masukan value ke dalam input berdasarkan id
-    data_isian_surat = JSON.parse(data_isian_surat);
-    for (var key in data_isian_surat) {
-        $('#' + key).val(data_isian_surat[key]);
+    var file_lampiran = <?= json_encode($surat_keluar['lampiran_surat_keluar']); ?>;
+    var tipe_lampiran = <?= json_encode($surat_keluar['tipe_lampiran_surat_keluar']); ?>;
+    // console.log(file_lampiran, tipe_lampiran);
+    if (file_lampiran != null) {
+        $('#file_lampiran').attr('style', 'display: block');
+        $('#file_lampiran').attr('value', file_lampiran);
+        $('#preview').attr('style', 'display: block');
+        if (tipe_lampiran == 'img') {
+            $('#img-preview').attr('style', 'display: block');
+            $('#img-preview').attr('src', '<?= base_url('Assets/file_lampiran_surat_keluar/') ?>' +
+                file_lampiran);
+            $('#pdf-preview').attr('style', 'display: none');
+            $('#pdf-preview').attr('src', '');
+        } else if (tipe_lampiran == 'pdf') {
+            $('#pdf-preview').attr('style', 'display: block');
+            $('#pdf-preview').attr('src', '<?= base_url('Assets/file_lampiran_surat_keluar/') ?>' +
+                file_lampiran);
+            $('#img-preview').attr('style', 'display: none');
+            $('#img-preview').attr('src', '');
+        }
     }
 
-    // preview hasil surat ckeditor preview_hasil_surat
-    var judul_surat = <?= json_encode($surat_keluar['judul_surat_keluar']); ?> +
-        ' ' + <?= json_encode($surat_keluar['nomor_surat_keluar']); ?> +
-        ' ' + <?= json_encode($surat_keluar['tanggal_surat_keluar']); ?>;
-    CKEDITOR.replace('preview_hasil_surat', {
-        height: '1000px',
-        width: '100%',
-        baseFloatZIndex: 10005,
-        // tidak bisa mengedit
-        readOnly: true,
-        // hilangkan buttons
-        removeButtons: 'Cut,Copy,Paste,Undo,Redo,Anchor,HorizontalRule,SpecialChar,PageBreak,Iframe,About,Save,',
-        // judul print preview
-        title: judul_surat,
+    function chnageTipe(tipe) {
+
+        if (tipe == 'img') {
+            $('#file_lampiran_container').attr('style', 'display: block');
+            $('#file_lampiran').attr('type', 'file');
+            $('#file_lampiran').attr('accept', 'image/*');
+            $('#file_lampiran').attr('name', 'file_lampiran');
+            $('#file_lampiran').attr('required', 'required');
+            $('#file_lampiran').attr('value', '');
+            $('#file_lampiran').attr('class', 'form-control');
+            $('#file_lampiran').attr('placeholder', 'File Surat');
+            $('#file_lampiran').attr('style', 'display: block');
+            $('#preview').attr('style', 'display: none');
+            $('#pdf-preview').attr('src', '');
+            $('#img-preview').attr('src', '');
+        } else if (tipe == 'pdf') {
+            $('#file_lampiran_container').attr('style', 'display: block');
+            $('#file_lampiran').attr('type', 'file');
+            $('#file_lampiran').attr('accept', 'application/pdf');
+            $('#file_lampiran').attr('name', 'file_lampiran');
+            $('#file_lampiran').attr('required', 'required');
+            $('#file_lampiran').attr('value', '');
+            $('#file_lampiran').attr('class', 'form-control');
+            $('#file_lampiran').attr('placeholder', 'File Surat');
+            $('#file_lampiran').attr('style', 'display: block');
+            $('#preview').attr('style', 'display: none');
+            $('#pdf-preview').attr('src', '');
+            $('#img-preview').attr('src', '');
+        } else {
+            $('#file_lampiran_container').attr('style', 'display: none');
+            $('#file_lampiran').attr('type', 'hidden');
+            $('#file_lampiran').attr('name', '');
+            $('#file_lampiran').attr('required', '');
+            $('#file_lampiran').attr('value', '');
+            $('#file_lampiran').attr('class', '');
+            $('#file_lampiran').attr('placeholder', '');
+            $('#file_lampiran').attr('style', 'display: none');
+            $('#preview').attr('style', 'display: none');
+            $('#img-preview').attr('src', '');
+            $('#pdf-preview').attr('src', '');
+        }
+    }
+    $('#tipe_lampiran_surat_keluar').change(function() {
+        var tipe = $(this).val();
+        chnageTipe(tipe);
     });
-    </script>
-    <?= $this->endSection('script'); ?>
+    $('#file_lampiran').change(function() {
+        var file = $(this).val();
+        var tipe = $('#tipe_lampiran_surat_keluar').val();
+        $('#preview').attr('style', 'display: block');
+        if (tipe == 'img') {
+            $('#pdf-preview').attr('style', 'display: none');
+            $('#pdf-preview').attr('src', '');
+            $('#img-preview').attr('style', 'display: block');
+            $('#img-preview').attr('src', URL.createObjectURL(event.target.files[0]));
+        }
+        if (tipe == 'pdf') {
+            $('#img-preview').attr('style', 'display: none');
+            $('#pdf-preview').attr('style', 'display: block');
+            $('#img-preview').attr('src', '');
+            $('#pdf-preview').attr('src', URL.createObjectURL(event.target.files[0]));
+        }
+    });
+});
+
+
+// ubah data isian_surat_keluar
+var data_isian_surat = <?= json_encode($surat_keluar['isian_surat_keluar']); ?>;
+// console.log(data_isian_surat);   
+
+// masukan value ke dalam input berdasarkan id
+data_isian_surat = JSON.parse(data_isian_surat);
+for (var key in data_isian_surat) {
+    $('#' + key).val(data_isian_surat[key]);
+}
+
+// preview hasil surat ckeditor preview_hasil_surat
+var judul_surat = <?= json_encode($surat_keluar['judul_surat_keluar']); ?> +
+    ' ' + <?= json_encode($surat_keluar['nomor_surat_keluar']); ?> +
+    ' ' + <?= json_encode($surat_keluar['tanggal_surat_keluar']); ?>;
+CKEDITOR.replace('preview_hasil_surat', {
+    height: '1000px',
+    width: '100%',
+    baseFloatZIndex: 10005,
+    // tidak bisa mengedit
+    readOnly: true,
+    // hilangkan buttons
+    removeButtons: 'Cut,Copy,Paste,Undo,Redo,Anchor,HorizontalRule,SpecialChar,PageBreak,Iframe,About,Save,',
+    // judul print preview
+    title: judul_surat,
+});
+</script>
+<?= $this->endSection('script'); ?>
