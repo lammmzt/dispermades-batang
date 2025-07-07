@@ -79,7 +79,7 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-           'Middleware' => ['except' => ['Auth','Auth/*',]],
+           'Middleware' => ['except' => ['Auth','Auth/*','Surat_keluar/preview/*']],
             // 'csrf',
             // 'invalidchars',
         ],

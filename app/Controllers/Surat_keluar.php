@@ -677,7 +677,7 @@ class Surat_keluar extends BaseController
             if (file_exists($nama_file)) { // jika file sudah ada
                 unlink($nama_file); // hapus file
             }
-            $result = Builder::create()
+            $result = Builder::create() // buat qr code
                     ->writer(new PngWriter())
                     ->writerOptions([])
                     ->data($url)
