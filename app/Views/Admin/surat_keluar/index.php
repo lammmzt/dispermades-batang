@@ -121,7 +121,7 @@ function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat
                                     <a class="btn btn-sm btn-icon btn-warning" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Proses Draf"
                                         href="<?= base_url('Surat_keluar/proses/'.$jns['id_surat_keluar']); ?>">
-                                        Edit <i class="bi bi-pencil-square"></i>
+                                        Proses <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <?php 
                                     endif; 
