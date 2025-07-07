@@ -232,7 +232,7 @@ class Surat_keluar extends BaseController
         ]);
         if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
             session()->setFlashdata('errors', 'Gagal mengubah data surat keluar, pastikan semua field terisi dan file surat memiliki ekstensi yang benar'); // set flashdata error
-            return redirect()->to('/surat_keluar/tambah')->withInput(); // redirect ke halaman tambah surat keluar
+            return redirect()->to('/surat_keluar/proses/' . $this->request->getPost('id_surat_keluar'))->withInput(); // redirect ke halaman proses surat keluar
         }
         // dd($this->request->getPost());
         // upload file surat 
