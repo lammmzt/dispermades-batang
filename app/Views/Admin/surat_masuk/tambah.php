@@ -25,8 +25,7 @@
                 </div>
             </div>
             <div class="mt-2 mx-3">
-                <form action="<?= base_url('Surat_masuk/save'); ?>" method="post" enctype="multipart/form-data"
-                    class="needs-validation" novalidate>
+                <form action="<?= base_url('Surat_masuk/save'); ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
 
                     <div class="row mb-3">

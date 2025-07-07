@@ -26,8 +26,7 @@
                     </div>
                 </div>
                 <div class="mt-2 mx-3">
-                    <form action="<?= base_url('Surat_masuk/update'); ?>" method="post" enctype="multipart/form-data"
-                        class="needs-validation" novalidate>
+                    <form action="<?= base_url('Surat_masuk/update'); ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="id_surat_masuk" value="<?= $surat_masuk['id_surat_masuk']; ?>">
                         <div class="row mb-3">

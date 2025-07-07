@@ -26,7 +26,7 @@
             <div class="mt-2 mx-3">
                 <div class="row mb-3">
                     <form action="<?= base_url('Surat_keluar/tambah'); ?>" method="post" enctype="multipart/form-data"
-                        class="needs-validation" novalidate id="form_filter">
+                        id="form_filter">
                         <div class="col-md-6">
                             <label for="id_jenis_surat" class="form-label">Jenis Surat</label>
                             <select class="form-select select2" id="id_jenis_surat" name="id_jenis_surat" required
