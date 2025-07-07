@@ -112,9 +112,7 @@ class Surat_keluar extends BaseController
         // dd($this->request->getPost());
         $validation->setRules([ // set rules validasi
             'judul_surat_keluar' => 'required',
-            'no_surat_keluar' => 'required',
             'keterangan_surat_keluar' => 'required',
-            'tipe_lampiran_surat_keluar' => 'required',
         ]);
         if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
             session()->setFlashdata('errors', 'Gagal menambahkan data surat keluar, pastikan semua field terisi dan file surat memiliki ekstensi yang benar'); // set flashdata error
@@ -230,9 +228,7 @@ class Surat_keluar extends BaseController
         $validation = \Config\Services::validation(); // membuat objek validasi
         $validation->setRules([ // set rules validasi
             'judul_surat_keluar' => 'required',
-            'no_surat_keluar' => 'required',
             'keterangan_surat_keluar' => 'required',
-            'tipe_lampiran_surat_keluar' => 'required',
         ]);
         if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
             session()->setFlashdata('errors', 'Gagal mengubah data surat keluar, pastikan semua field terisi dan file surat memiliki ekstensi yang benar'); // set flashdata error
