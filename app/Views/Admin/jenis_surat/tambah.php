@@ -39,17 +39,17 @@
                     <div class="mb-3">
                         <label for="nama_jenis_surat" class="form-label">Nama Jenis Surat</label>
                         <input type="text" class="form-control" id="nama_jenis_surat" name="nama_jenis_surat"
-                            value="<?= old('nama_jenis_surat'); ?>">
+                            value="<?= old('nama_jenis_surat'); ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="ket_jenis_surat" class="form-label">Keterangan Jenis Surat</label>
-                        <textarea class="form-control" name="ket_jenis_surat"
-                            rows="3"><?= old('ket_jenis_surat'); ?></textarea>
+                        <textarea class="form-control" name="ket_jenis_surat" rows="3"
+                            required><?= old('ket_jenis_surat'); ?></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="kode_surat" class="form-label">Kode Surat</label>
                         <input type="text" class="form-control" id="kode_surat" name="kode_surat"
-                            value="<?= old('kode_surat'); ?>">
+                            value="<?= old('kode_surat'); ?>" required>
                         <div class="form-text">Contoh kode surat: 800</div>
                     </div>
                     <div class="mb-3">
