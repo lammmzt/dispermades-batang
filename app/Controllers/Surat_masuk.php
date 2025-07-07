@@ -57,7 +57,7 @@ class Surat_masuk extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
-            session()->setFlashdata('errors', $validation->getErrors()); // set flashdata error
+            session()->setFlashdata('errors', 'Gagal menambahkan data surat masuk, pastikan semua field terisi dan file surat memiliki ekstensi yang benar'); // set flashdata error
             return redirect()->to('/Surat_masuk/tambah')->withInput(); // redirect ke halaman tambah surat masuk
         }
         // upload file surat 
@@ -135,7 +135,7 @@ class Surat_masuk extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
-            session()->setFlashdata('errors', $validation->getErrors()); // set flashdata error
+            session()->setFlashdata('errors', 'Gagal mengubah data surat masuk, pastikan semua field terisi dan file surat memiliki ekstensi yang benar'); // set flashdata error
             return redirect()->to('/Surat_masuk/tambah')->withInput(); // redirect ke halaman tambah surat masuk
         }
         $id_surat_masuk = $this->request->getPost('id_surat_masuk'); // mengambil id surat masuk
@@ -281,7 +281,7 @@ class Surat_masuk extends BaseController
         ]);
         
         if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
-            session()->setFlashdata('errors', $validation->getErrors()); // set flashdata error
+            session()->setFlashdata('errors', 'Gagal mengirim balasan disposisi, pastikan semua field terisi'); // set flashdata error
             return redirect()->to('/Disposisi/detail/'.$this->request->getPost('id_disposisi'))->withInput(); // redirect ke halaman tambah surat masuk
         }
         $id_disposisi = $this->request->getPost('id_disposisi'); // mengambil id disposisi

@@ -108,7 +108,18 @@ class Surat_keluar extends BaseController
             $newName = $fileSurat->getRandomName(); // generate nama file random
             $fileSurat->move('Assets/file_lampiran_surat_keluar/', $newName); // pindahkan file surat ke folder lampiran_surat_keluar
         }
-        
+        $validation = \Config\Services::validation(); // membuat objek validasi
+        // dd($this->request->getPost());
+        $validation->setRules([ // set rules validasi
+            'judul_surat_keluar' => 'required',
+            'no_surat_keluar' => 'required',
+            'keterangan_surat_keluar' => 'required',
+            'tipe_lampiran_surat_keluar' => 'required',
+        ]);
+        if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
+            session()->setFlashdata('errors', 'Gagal menambahkan data surat keluar, pastikan semua field terisi dan file surat memiliki ekstensi yang benar'); // set flashdata error
+            return redirect()->to('/surat_keluar/tambah')->withInput(); // redirect ke halaman tambah surat keluar
+        }
         $isian_surat_keluar = [];
         foreach ($this->request->getPost() as $key => $value) { // loop data surat keluar
             // jika ada {} maka masukan ke dalam array
@@ -217,6 +228,16 @@ class Surat_keluar extends BaseController
         $model = new suratKeluarModel(); // membuat objek model surat keluar
         $detailSuratKeluar = new detailSuratKeluarModel(); // membuat objek model detail jenis surat
         $validation = \Config\Services::validation(); // membuat objek validasi
+        $validation->setRules([ // set rules validasi
+            'judul_surat_keluar' => 'required',
+            'no_surat_keluar' => 'required',
+            'keterangan_surat_keluar' => 'required',
+            'tipe_lampiran_surat_keluar' => 'required',
+        ]);
+        if (!$validation->withRequest($this->request)->run()) { // jika validasi tidak terpenuhi
+            session()->setFlashdata('errors', 'Gagal mengubah data surat keluar, pastikan semua field terisi dan file surat memiliki ekstensi yang benar'); // set flashdata error
+            return redirect()->to('/surat_keluar/tambah')->withInput(); // redirect ke halaman tambah surat keluar
+        }
         // dd($this->request->getPost());
         // upload file surat 
         $id_surat_keluar = $this->request->getPost('id_surat_keluar'); // mengambil id surat keluar
