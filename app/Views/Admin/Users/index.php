@@ -131,7 +131,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('Users/save'); ?>" method="post" class="needs-validation" novalidate>
+                <form action="<?= base_url('Users/save'); ?>" method="post">
                     <div class="form-group mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Username"
@@ -182,7 +182,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('Users/update'); ?>" method="post" class="needs-validation" novalidate>
+                <form action="<?= base_url('Users/update'); ?>" method="post">
                     <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
                     <div class="form-group mb-3
                         <?= ($validation->hasError('username')) ? 'has-error' : ''; ?>">

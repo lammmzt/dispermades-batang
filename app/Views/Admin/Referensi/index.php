@@ -90,8 +90,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Referensi/saveReferensi'); ?>" method="post" class="needs-validation"
-                        novalidate>
+                    <form action="<?= base_url('Referensi/saveReferensi'); ?>" method="post">
                         <div class="form-group mb-2">
                             <label for="kode_referensi_jenis_surat" class="form-label">Kode</label>
                             <input type="text" class="form-control" id="kode_referensi_jenis_surat"
@@ -169,8 +168,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Referensi/updateReferensi'); ?>" method="post" class="needs-validation"
-                        novalidate>
+                    <form action="<?= base_url('Referensi/updateReferensi'); ?>" method="post">
                         <div
                             class="form-group mb-2 <?= ($validation->hasError('kode_referensi_jenis_surat')) ? 'has-error' : ''; ?>">
                             <label for="kode_referensi_jenis_surat" class="form-label">Kode</label>

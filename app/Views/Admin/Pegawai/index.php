@@ -108,7 +108,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('Pegawai/save'); ?>" method="post" class="needs-validation" novalidate>
+                <form action="<?= base_url('Pegawai/save'); ?>" method="post">
                     <div class="form-group mb-2">
                         <label for="nama_pegawai" class="form-label">Nama Pegawai</label>
                         <input type="text" class="form-control" id="nama_pegawai" name="nama_pegawai"
@@ -167,7 +167,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('Pegawai/update'); ?>" method="post" class="needs-validation" novalidate>
+                <form action="<?= base_url('Pegawai/update'); ?>" method="post">
                     <input type="hidden" name="id_pegawai" value="<?= $pgw['id_pegawai']; ?>">
                     <div class="form-group mb-2
                         <?= ($validation->hasError('nama_pegawai')) ? 'has-error' : ''; ?>">

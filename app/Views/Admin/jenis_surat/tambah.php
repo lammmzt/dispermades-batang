@@ -34,8 +34,7 @@
                 </div>
             </div>
             <div class="mt-2 mx-3">
-                <form action="<?= base_url('Jenis_surat/save'); ?>" method="post" enctype="multipart/form-data"
-                    class="needs-validation" novalidate>
+                <form action="<?= base_url('Jenis_surat/save'); ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="mb-3">
                         <label for="nama_jenis_surat" class="form-label">Nama Jenis Surat</label>
