@@ -54,10 +54,12 @@ function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat
                     <form action="<?= base_url('Laporan/Surat_keluar'); ?>" method="post" class="d-flex">
                         <div class="input-group">
                             <label for="tanggal_awal" class="input-group-text">Tanggal Awal</label>
-                            <input type="date" name="tanggal_awal" class="form-control" value="<?= $tanggal_awal; ?>">
+                            <input type="date" name="tanggal_awal" class="form-control" value="<?= $tanggal_awal; ?>"
+                                required>
                             <span class="input-group-text">s/d</span>
                             <label for="tanggal_akhir" class="input-group-text">Tanggal Akhir</label>
-                            <input type="date" name="tanggal_akhir" class="form-control" value="<?= $tanggal_akhir; ?>">
+                            <input type="date" name="tanggal_akhir" class="form-control" value="<?= $tanggal_akhir; ?>"
+                                required>
                             <button type="submit" class="btn btn-primary">Filter</button>
                         </div>
                     </form>
