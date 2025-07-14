@@ -294,7 +294,8 @@
                     <div class="row mb-3">
                         <div class="col-md-3 mt-3">
                             <label for="status_surat_keluar" class="form-label">Proses Surat</label>
-                            <select class="form-select" name="status_surat_keluar" required style="width: 100%;">
+                            <select class="form-select" name="status_surat_keluar" required style="width: 100%;"
+                                id="status_surat_keluar">
                                 <option selected>Pilih Proses
                                 <option value="1" <?= $surat_keluar['status_surat_keluar'] == '1' ? 'selected' : ''; ?>>
                                     Draft
@@ -572,6 +573,12 @@ $(document).on('click', '.hapus_penerima', function() {
             // console.log(data);
             if (data.error == false) {
                 sweetalert('success', 'Berhasil', 'Penerima berhasil dihapus');
+                // hapus data penerima
+                for (var i = 0; i < data_penerima_penerima.length; i++) {
+                    if (data_penerima_penerima[i].id_detail_surat_keluar == id_penerima) {
+                        data_penerima_penerima.splice(i, 1);
+                    }
+                }
                 generatePenerima();
             } else {
                 alert(data.message);
@@ -616,9 +623,12 @@ for (var key in data_isian_surat) {
 }
 
 $('#form_surat_keluar').submit(function() {
-    if (data_penerima_penerima.length == 0) {
-        sweetalert('warning', 'Perhatian', 'Penerima masih kosong');
-        return false;
+    // jika status persetujuan = 3
+    if ($('#status_surat_keluar').val() == '2') {
+        if (data_penerima_penerima.length == 0) {
+            sweetalert('warning', 'Perhatian', 'Penerima masih kosong');
+            return false;
+        }
     }
 });
 
