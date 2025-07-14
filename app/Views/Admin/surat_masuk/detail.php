@@ -228,7 +228,7 @@
                                         <div class="timeline-item">
                                             <!-- <span class="time"> <i class="bi bi-clock-fill"></i> 2 days ago </span> -->
                                             <h3 class="timeline-header"><a href="#">
-                                                    <?= $row['nama_user']; ?></a> Membaca Disposisi
+                                                    <?= $row['nama_pegawai']; ?></a> Membaca Disposisi
                                             </h3>
                                             <div class="timeline-body">
                                                 Disposisi dengan Nomor <strong><?= $row['id_disposisi']; ?></strong>
