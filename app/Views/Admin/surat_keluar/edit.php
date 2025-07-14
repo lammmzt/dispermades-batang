@@ -48,7 +48,7 @@
                     </form>
                 </div> -->
                 <form action="<?= base_url('Surat_keluar/updateDataIsian'); ?>" method="post"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" id="form_surat_keluar">
                     <?= csrf_field(); ?>
                     <div class="row">
                         <div class="col-md-6 mt-3">
@@ -615,10 +615,13 @@ for (var key in data_isian_surat) {
     $('#' + key).val(data_isian_surat[key]);
 }
 
-// jika penerima kosong set penerima
-if (data_penerima_penerima.length == 0) {
-    sweetalert('warning', 'Perhatian', 'Penerima masih kosong');
-}
+$('#form_surat_keluar').submit(function() {
+    if (data_penerima_penerima.length == 0) {
+        sweetalert('warning', 'Perhatian', 'Penerima masih kosong');
+        return false;
+    }
+});
+
 
 // preview hasil surat ckeditor preview_hasil_surat
 CKEDITOR.replace('preview_hasil_surat', {

@@ -41,7 +41,8 @@
                     </form>
                 </div>
                 <hr style="border-top: 1px solid; width: 100%; margin: 1rem 0;">
-                <form action="<?= base_url('Surat_keluar/save'); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('Surat_keluar/save'); ?>" method="post" enctype="multipart/form-data"
+                    id="form_surat_keluar">
                     <?= csrf_field(); ?>
                     <div class="row">
 
