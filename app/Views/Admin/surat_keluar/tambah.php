@@ -434,5 +434,13 @@ $(document).on('focusout', '.keterangan_detail_surat_keluar', function() {
     }
     render_penerima();
 });
+
+// when submit form check penerima 
+$('#form_surat_keluar').submit(function() {
+    if (data_penerima_penerima.length == 0) {
+        sweetalert('warning', 'Perhatian', 'Penerima harus diisi');
+        return false;
+    }
+});
 </script>
 <?= $this->endSection('script'); ?>

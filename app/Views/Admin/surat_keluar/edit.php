@@ -615,8 +615,12 @@ for (var key in data_isian_surat) {
     $('#' + key).val(data_isian_surat[key]);
 }
 
-// preview hasil surat ckeditor preview_hasil_surat
+// jika penerima kosong set penerima
+if (data_penerima_penerima.length == 0) {
+    sweetalert('warning', 'Perhatian', 'Penerima masih kosong');
+}
 
+// preview hasil surat ckeditor preview_hasil_surat
 CKEDITOR.replace('preview_hasil_surat', {
     height: '1000px',
     width: '100%',
