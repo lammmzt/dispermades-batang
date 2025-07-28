@@ -28,8 +28,8 @@ class External extends BaseController
         $validation = \Config\Services::validation(); // membuat objek validasi
         // dd($this->request->getPost());
         $validation->setRules([ // set rules validasi
-            'nama_external' => 'required',
-            'nama_alias_external' => 'required',
+            'nama_external' => 'required|is_unique[external.nama_external]',
+            'nama_alias_external' => 'required|is_unique[external.nama_alias_external]',
             'kota_external' => 'required',
             'alamat_external' => 'required',
             'kota_external' => 'required',
@@ -86,9 +86,9 @@ class External extends BaseController
         $id = $this->request->getPost('id_external'); // mengambil data id external
         $validation = \Config\Services::validation(); // membuat objek validasi
         $validation->setRules([ // set rules validasi
-            'nama_external' => 'required', // nama external wajib diisi
+            'nama_external' => 'required|is_unique[external.nama_external]',
             'kota_external' => 'required',
-            'nama_alias_external' => 'required',
+            'nama_alias_external' => 'required|is_unique[external.nama_alias_external,id_external,' . $id . ']',
             'kota_external' => 'required',
             'alamat_external' => 'required',
             'no_tlp_external' => 'required',
