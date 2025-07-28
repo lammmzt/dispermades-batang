@@ -35,7 +35,7 @@ class Referensi extends BaseController
         ]);
         if (!$validation->run($this->request->getPost())) { // jika validasi tidak terpenuhi
             session()->setFlashdata('errors', 'Data Referensi Jenis Surat gagal ditambahkan'); // set flashdata error
-            return redirect()->to('/Jenis_surat/Referensi')->withInput(); // redirect ke halaman referensi jenis surat
+            return redirect()->to('Referensi')->withInput(); // redirect ke halaman referensi jenis surat
         }
         $data = [  // set data referensi jenis surat
             'kode_referensi_jenis_surat' => $this->request->getPost('kode_referensi_jenis_surat'), // set id referensi jenis surat

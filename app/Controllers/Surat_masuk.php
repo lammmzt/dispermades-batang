@@ -206,7 +206,7 @@ class Surat_masuk extends BaseController
             }
         }
         
-        $data['title'] = 'Edit Surat Masuk'; // set judul halaman
+        $data['title'] = 'Detail Surat Masuk'; // set judul halaman
         $data['surat_masuk'] = $data_surat_masuk;
         $data['pegawai'] = $pegawaiModel->where('status_pegawai', '1')->findAll(); // mengambil semua data pegawai yang statusnya aktif
         $data['disposisi'] = $disposisiModel->getDisposisiBySurat($id); // mengambil data disposisi berdasarkan id surat masuk
