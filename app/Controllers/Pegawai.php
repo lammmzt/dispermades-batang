@@ -144,6 +144,7 @@ class Pegawai extends BaseController
         }
         $data_user['nama_user'] = ucwords($this->request->getPost('nama_pegawai')); // set nama user
         $data_user['status_user'] = $this->request->getPost('status_pegawai'); // set status user
+        $data_user['password'] = $password;
         $userModel->update($data_pegawai['id_user'], $data_user); // update data user
         $data = [   // set data pegawai
             'nama_pegawai' => ucwords($this->request->getPost('nama_pegawai')),

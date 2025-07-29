@@ -121,6 +121,7 @@ class External extends BaseController
         }
         
         $data_user['status_user'] = $this->request->getPost('status_external'); // set status user
+        $data_user['password'] = $password;
         $userModel->update($data_external['id_user'], $data_user); // update data user
         $data = [   // set data external
             'nama_external' => ucwords($this->request->getPost('nama_external')),
