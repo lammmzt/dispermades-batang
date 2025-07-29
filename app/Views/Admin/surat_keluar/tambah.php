@@ -49,16 +49,17 @@
                         <?php 
                         if($dataDetailJenisSurat != null):
                             
-                            foreach($dataDetailJenisSurat as $djs): 
-                        ?>
-                        <?php 
-                        if($djs['tipe_referensi_jenis_surat'] == 'input'):
-                        ?>
+                            ?>
                         <div class="col-md-6 mt-2 mb-2">
                             <label for="judul_surat_keluar" class="form-label">Judul Surat</label>
                             <input type="text" class="form-control" id="judul_surat_keluar" name="judul_surat_keluar"
                                 value="<?= old('judul_surat_keluar'); ?>" required placeholder="Judul Surat">
                         </div>
+                        <?php 
+                        foreach($dataDetailJenisSurat as $djs): 
+                        if($djs['tipe_referensi_jenis_surat'] == 'input'):
+                        ?>
+
                         <div class="col-md-6 mt-2 mb-2">
                             <label for="<?= $djs['kode_referensi_jenis_surat']; ?>" class="form-label">
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>

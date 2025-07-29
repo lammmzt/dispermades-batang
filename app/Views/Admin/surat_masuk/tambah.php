@@ -25,7 +25,8 @@
                 </div>
             </div>
             <div class="mt-2 mx-3">
-                <form action="<?= base_url('Surat_masuk/save'); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('Surat_masuk/save'); ?>" method="post" enctype="multipart/form-data"
+                    id="form_surat_masuk">
                     <?= csrf_field(); ?>
 
                     <div class="row mb-3">
@@ -291,6 +292,14 @@ $(document).on('focusout', '.ket_disposisi', function() {
         }
     }
     render_disposisi_pegawai();
+});
+
+// check wehn post data
+$(document).on('submit', '#form_surat_masuk', function() {
+    if (data_disposisi_pegawai.length == 0) {
+        swal('Error', 'Belum ada disposisi', 'error');
+        return false;
+    }
 });
 </script>
 <?= $this->endSection('script'); ?>

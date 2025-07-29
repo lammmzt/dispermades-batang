@@ -48,6 +48,11 @@ class External extends BaseController
         }
         $id_user = Uuid::uuid4()->toString(); // generate id user
         $username = $this->request->getPost('username'); // mengambil data username
+        $checkUsername = $userModel->where('username', $username)->countAllResults(); // cek username sudah digunakan
+        if ($checkUsername > 0) { // jika username sudah digunakan
+            session()->setFlashdata('errors', 'Username sudah digunakan'); // set flashdata error
+            return redirect()->to('/External')->withInput(); // redirect ke halaman external
+        }
         // save user
         $data_user = [ // set data user
             'id_user' => $id_user,
