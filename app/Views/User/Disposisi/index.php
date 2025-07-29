@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <div class="header-title">
-                <h4 class="card-title fw-bold">Daftar Disposisi Surat Masuk</h4>
+                <h4 class="card-title fw-bold">Daftar Disposisi</h4>
             </div>
             <div class="header-title">
 

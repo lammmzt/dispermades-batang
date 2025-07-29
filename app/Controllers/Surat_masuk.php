@@ -262,7 +262,7 @@ class Surat_masuk extends BaseController
         //         'updated_at' => date('Y-m-d H:i:s') // set tanggal diubah
         //     ]);
         // }
-        $data['title'] = 'Edit Surat Masuk'; // set judul halaman
+        $data['title'] = 'Detail Disposisi'; // set judul halaman
         $data['surat_masuk'] = $data_disposisi; // mengambil data surat masuk berdasarkan id
         $data['active'] = 'Disposisi'; // set active menu
         $data['validation'] = \Config\Services::validation(); // set validasi

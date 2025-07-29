@@ -522,12 +522,12 @@ $('#tambahPenerima').click(function() {
     var nama_penerima = $('#id_penerima option:selected').text();
     // console.log(id_penerima, nama_penerima, id_surat_keluar);
     if (id_penerima == 'Pilih penerima') {
-        alert('Pilih penerima');
+        sweetalert('warning', 'Penerima belum dipilih');
     } else {
         // jika data penerima sudah ada
         for (var i = 0; i < data_penerima_penerima.length; i++) {
             if (data_penerima_penerima[i].id_user == id_penerima) {
-                alert('penerima sudah ada');
+                sweetalert('warning', 'Penerima sudah ada');
                 return false;
             }
         }
@@ -562,6 +562,11 @@ $('#tambahPenerima').click(function() {
 // fungsi untuk menghapus data penerima yang akan di penerima
 $(document).on('click', '.hapus_penerima', function() {
     var id_penerima = $(this).data('id');
+    // jika penerima kurangdari 2
+    if (data_penerima_penerima.length == 1) {
+        sweetalert('warning', 'Minimal penerima adalah 1');
+        return false;
+    }
     $.ajax({
         url: '<?= base_url('Surat_keluar/deleteDetailSuratKeluar'); ?>',
         type: 'POST',

@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header">
             <div class="header-title">
-                <h4 class="card-title fw-bold">Detail Surat Keluar</h4>
+                <h4 class="card-title fw-bold">Detail Surat</h4>
             </div>
             <div class="header-title">
                 <a href="<?= base_url('Surat'); ?>" class="btn btn-primary btn-md align-items-center float-end">

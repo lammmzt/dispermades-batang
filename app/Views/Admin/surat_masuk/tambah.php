@@ -52,7 +52,8 @@
                         <div class="col-md-6">
                             <label for="tgl_surat_masuk" class="form-label">Tanggal Surat</label>
                             <input type="date" class="form-control" id="tgl_surat_masuk" name="tgl_surat_masuk"
-                                value="<?= old('tgl_surat_masuk'); ?>" required placeholder="Tanggal Surat">
+                                value="<?= old('tgl_surat_masuk'); ?>" required placeholder="Tanggal Surat"
+                                max="<?= date('Y-m-d'); ?>">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -250,7 +251,7 @@ $('#tambah_disposisi').click(function() {
     var id_pegawai = $('#pegawai_disposisi').val();
     var nama_pegawai = $('#pegawai_disposisi option:selected').text();
     if (id_pegawai == 'Pilih Pegawai') {
-        alert('Pilih Pegawai');
+        sweetalert('warning', 'Pegawai belum dipilih');
     } else {
         // jika data pegawai sudah ada
         for (var i = 0; i < data_disposisi_pegawai.length; i++) {
@@ -295,9 +296,9 @@ $(document).on('focusout', '.ket_disposisi', function() {
 });
 
 // check wehn post data
-$(document).on('submit', '#form_surat_masuk', function() {
+$('#form_surat_masuk').submit(function() {
     if (data_disposisi_pegawai.length == 0) {
-        swal('Error', 'Belum ada disposisi', 'error');
+        sweetalert('warning', 'Perhatian', 'Disposisi harus diisi');
         return false;
     }
 });
