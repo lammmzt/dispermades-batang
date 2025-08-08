@@ -99,7 +99,7 @@ class External extends BaseController
             session()->setFlashdata('success', 'Data external berhasil ditambahkan'); // set flashdata success
             return redirect()->to('/External'); // redirect ke halaman external
         }else{ // jika email gagal dikirim
-            session()->setFlashdata('errors', 'Data external gagal ditambahkan'); // set flashdata error
+            session()->setFlashdata('errors', 'Data Email tidak valid'); // set flashdata error
             return redirect()->to('/External')->withInput(); // redirect ke halaman external
             // $data = $email->printDebugger(['headers', 'subject', 'message']);
             // print_r($data);
