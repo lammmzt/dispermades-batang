@@ -116,7 +116,7 @@ class External extends BaseController
         $validation->setRules([ // set rules validasi
             'nama_external' => 'required|is_unique[external.nama_external,id_external,' . $id . ']',
             'kota_external' => 'required',
-            'email' => 'required|is_unique[external.email_external,id_external,' . $id . ']',
+            'email_external' => 'required|is_unique[external.email_external,id_external,' . $id . ']',
             'kota_external' => 'required',
             'alamat_external' => 'required',
             'no_tlp_external' => 'required',
