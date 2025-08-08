@@ -116,6 +116,9 @@
                                 <option value="input"
                                     <?= (old('tipe_referensi_jenis_surat') == 'input') ? 'selected' : ''; ?>>Input
                                 </option>
+                                <option value="select"
+                                    <?= (old('tipe_referensi_jenis_surat') == 'select') ? 'selected' : ''; ?>>Select
+                                </option>
                                 <option value="textarea"
                                     <?= (old('tipe_referensi_jenis_surat') == 'textarea') ? 'selected' : ''; ?>>Textarea
                                 </option>
@@ -139,7 +142,22 @@
                                 <?= $validation->getError('tipe_referensi_jenis_surat'); ?>
                             </div>
                         </div>
-
+                        <div class="form-group mb-2 mb-3" id="data_bantu_jenis_surat" style="display: none;">
+                            <label for="data_bantu_jenis_surat" class="form-label">Data Bantu Jenis Surat</label>
+                            <textarea class="form-control" name="data_bantu_jenis_surat" placeholder="Keterangan"
+                                required value="<?= old('data_bantu_jenis_surat'); ?>"></textarea>
+                            <span class="form-text text-muted">Pisahkan dengan koma (,) jika lebih dari satu data</span>
+                        </div>
+                        <div class="form-group mb-2 mb-3">
+                            <label for="wajib_jenis_surat" class="form-label">Wajib disii</label>
+                            <select class="form-select" id="wajib_jenis_surat" name="wajib_jenis_surat">
+                                <option value="1" <?= (old('wajib_jenis_surat') == '') ? 'selected' : ''; ?>>Wajib
+                                </option>
+                                <option value="0" <?= (old('wajib_jenis_surat') == '0') ? 'selected' : ''; ?>>Tidak
+                                    Wajib
+                                </option>
+                            </select>
+                        </div>
                         <div class="form-group mb-2 mb-3">
                             <label for="ket_referensi_jenis_surat" class="form-label">Keterangan</label>
                             <textarea class="form-control" id="ket_referensi_jenis_surat"
@@ -158,7 +176,9 @@
     </div>
 
     <!-- edit -->
-    <?php foreach($referensi as $rf): ?>
+    <?php foreach($referensi as $rf): 
+    // dd($rf);    
+    ?>
     <div class="modal fade" id="editreferensi<?= $rf['id_referensi_jenis_surat']; ?>" data-bs-backdrop="static"
         data-bs-keyboard="false" tabindex="-1" aria-labelledby="editreferensiLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -185,7 +205,7 @@
                         <?= ($validation->hasError('nama_referensi_jenis_surat')) ? 'has-error' : ''; ?>">
                             <label for="nama_referensi_jenis_surat" class="form-label">Nama Referensi</label>
                             <input type="text" class="form-control" id="nama_referensi_jenis_surat"
-                                name="nama_referensi_jenis_surat" placeholder="Nama Referensi" required
+                                name="nama_referensi_jenis_surat" placeholder="Nama Referensi"
                                 value="<?= $rf['nama_referensi_jenis_surat']; ?>">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('nama_referensi_jenis_surat'); ?>
@@ -194,12 +214,15 @@
                         <div class="form-group mb-2
                         <?= ($validation->hasError('tipe_referensi_jenis_surat')) ? 'has-error' : ''; ?>">
                             <label for="tipe_referensi_jenis_surat" class="form-label">Tipe Inputan</label>
-                            <select class="form-select" id="tipe_referensi_jenis_surat"
-                                name="tipe_referensi_jenis_surat">
+                            <select class="form-select tip_referensi" id="tipe_referensi_jenis_surat"
+                                data-id_ref="<?= $rf['id_referensi_jenis_surat']; ?>" name="tipe_referensi_jenis_surat">
                                 <option value="" <?= ($rf['tipe_referensi_jenis_surat'] == '') ? 'selected' : ''; ?>>
                                     Tanpa Inputan </option>
                                 <option value="input"
                                     <?= ($rf['tipe_referensi_jenis_surat'] == 'input') ? 'selected' : ''; ?>>Input
+                                </option>
+                                <option value="select"
+                                    <?= ($rf['tipe_referensi_jenis_surat'] == 'select') ? 'selected' : ''; ?>>Select
                                 </option>
                                 <option value="textarea"
                                     <?= ($rf['tipe_referensi_jenis_surat'] == 'textarea') ? 'selected' : ''; ?>>Textarea
@@ -224,7 +247,27 @@
                                 <?= $validation->getError('tipe_referensi_jenis_surat'); ?>
                             </div>
                         </div>
+                        <div class="form-group mb-2 mb-3"
+                            id="data_bantu_jenis_surat<?= $rf['id_referensi_jenis_surat']; ?>"
+                            style="display: <?= ($rf['tipe_referensi_jenis_surat'] == 'select') ? 'block' : 'none'; ?>;">
+                            <label for="data_bantu_jenis_surat" class="form-label">Data Bantu Jenis Surat</label>
+                            <textarea class="form-control" id="data_bantu_jenis_surat" name="data_bantu_jenis_surat"
+                                placeholder="Keterangan" required
+                                value="<?= old('data_bantu_jenis_surat'); ?>"><?= $rf['data_bantu_jenis_surat']; ?></textarea>
+                            <span class="form-text text-muted">Pisahkan dengan koma (,) jika lebih dari satu data</span>
+                        </div>
+                        <div class="form-group mb-2 mb-3">
+                            <label for="wajib_jenis_surat" class="form-label">Wajib disii</label>
+                            <select class="form-select" id="wajib_jenis_surat" name="wajib_jenis_surat">
+                                <option value="1"
+                                    <?= (isset($rf['wajib_jenis_surat']) && $rf['wajib_jenis_surat'] == '1') ? 'selected' : ''; ?>>
+                                    Wajib</option>
+                                <option value="0"
+                                    <?= (isset($rf['wajib_jenis_surat']) && $rf['wajib_jenis_surat'] == '0') ? 'selected' : ''; ?>>
+                                    Tidak Wajib</option>
 
+                            </select>
+                        </div>
                         <div class="form-group mb-2 mb-3">
                             <label for="ket_referensi_jenis_surat" class="form-label">Keterangan</label>
                             <textarea class="form-control" id="ket_referensi_jenis_surat"
@@ -245,3 +288,27 @@
 </div>
 
 <?= $this->endSection('content'); ?>
+<?= $this->section('script'); ?>
+<script style="text/javascript">
+// when click the select open data_bantu_jenis_surat
+$('#tipe_referensi_jenis_surat').on('change', function() {
+    if ($(this).val() == 'select') {
+        $('#data_bantu_jenis_surat').show();
+    } else {
+        $('#data_bantu_jenis_surat').hide();
+    }
+});
+
+// when click the select open data_bantu_jenis_surat
+$('.tip_referensi').on('change', function() {
+    // get the data-id_ref
+    var id = $(this).data('id_ref');
+    // alert(id);
+    if ($(this).val() == 'select') {
+        $('#data_bantu_jenis_surat' + id).show();
+    } else {
+        $('#data_bantu_jenis_surat' + id).hide();
+    }
+});
+</script>
+<?= $this->endSection('script'); ?>

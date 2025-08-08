@@ -55,7 +55,7 @@
                             <td class="text-center"><?= $no++; ?></td>
                             <td><?= $ext['username']; ?></td>
                             <td><?= $ext['nama_external']; ?></td>
-                            <td><?= $ext['nama_alias_external']; ?></td>
+                            <td><?= $ext['email_external']; ?></td>
                             <td><?= $ext['kota_external']; ?></td>
                             <td><?= $ext['alamat_external']; ?></td>
                             <td>
@@ -121,9 +121,9 @@
                             placeholder="Nama external" required value="<?= old('nama_external'); ?>">
                     </div>
                     <div class="form-group mb-2">
-                        <label for="nama_alias_external" class="form-label">Nama alias external</label>
-                        <input type="text" class="form-control" id="nama_alias_external" name="nama_alias_external"
-                            placeholder="Nama alias external" required value="<?= old('nama_alias_external'); ?>">
+                        <label for="email_external" class="form-label">Email External</label>
+                        <input type="email" class="form-control" id="email_external" name="email_external"
+                            placeholder="Nama alias external" required value="<?= old('email_external'); ?>">
                     </div>
                     <div class="form-group mb-2">
                         <label for="kota_external" class="form-label">Kota</label>
@@ -175,12 +175,12 @@
                         </div>
                     </div>
                     <div class="form-group mb-2
-                        <?= ($validation->hasError('nama_alias_external')) ? 'has-error' : ''; ?>">
-                        <label for="nama_alias_external" class="form-label">Nama alias external</label>
-                        <input type="text" class="form-control" id="nama_alias_external" name="nama_alias_external"
-                            placeholder="Nama alias external" required value="<?= $ext['nama_alias_external']; ?>">
+                        <?= ($validation->hasError('email_external')) ? 'has-error' : ''; ?>">
+                        <label for="email_external" class="form-label">Email external</label>
+                        <input type="text" class="form-control" id="email_external" name="email_external"
+                            placeholder="Nama alias external" required value="<?= $ext['email_external']; ?>">
                         <div class="invalid-feedback">
-                            <?= $validation->getError('nama_alias_external'); ?>
+                            <?= $validation->getError('email_external'); ?>
                         </div>
                     </div>
                     <div class="form-group mb-2">

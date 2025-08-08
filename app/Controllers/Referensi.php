@@ -19,7 +19,7 @@ class Referensi extends BaseController
             ['label' => '/ Referensi', 'url' => ''], // set breadcrumb parent
         ]; // set breadcrumb
         $data['validation'] = \Config\Services::validation(); // set validasi
-
+        // dd($data);
         return view('Admin/Referensi/index', $data); // tampilkan view referensi jenis surat
     }
 
@@ -40,6 +40,8 @@ class Referensi extends BaseController
             'kode_referensi_jenis_surat' => $this->request->getPost('kode_referensi_jenis_surat'), // set id referensi jenis surat
             'nama_referensi_jenis_surat' => $this->request->getPost('nama_referensi_jenis_surat'), // mengambil data nama referensi jenis surat
             'tipe_referensi_jenis_surat' => $this->request->getPost('tipe_referensi_jenis_surat'), // mengambil data tipe referensi jenis surat
+            'wajib_jenis_surat' => $this->request->getPost('wajib_jenis_surat'), // mengambil data wajib referensi jenis surat
+            'data_bantu_jenis_surat' => $this->request->getPost('data_bantu_jenis_surat'), // mengambil data data bantu referensi jenis surat
             'ket_referensi_jenis_surat' => $this->request->getPost('ket_referensi_jenis_surat'), // mengambil data keterangan referensi jenis surat
             'created_at' => date('Y-m-d H:i:s') // mengambil data template jenis surat
         ];
@@ -75,10 +77,13 @@ class Referensi extends BaseController
             session()->setFlashdata('errors', 'Data Referensi Jenis Surat gagal diubah'); // set flashdata error
             return redirect()->to('Referensi')->withInput(); // redirect ke halaman referensi jenis surat
         }
+        // dd($this->request->getPost());
         $data = [  // set data referensi jenis surat
             'kode_referensi_jenis_surat' => $this->request->getPost('kode_referensi_jenis_surat'), // set id referensi jenis surat
             'nama_referensi_jenis_surat' => $this->request->getPost('nama_referensi_jenis_surat'), // mengambil data nama referensi jenis surat
             'tipe_referensi_jenis_surat' => $this->request->getPost('tipe_referensi_jenis_surat'), // mengambil data tipe referensi jenis surat
+            'wajib_jenis_surat' => $this->request->getPost('wajib_jenis_surat'), // mengambil data wajib referensi jenis surat
+            'data_bantu_jenis_surat' => $this->request->getPost('data_bantu_jenis_surat'), // mengambil data data bantu referensi jenis surat
             'ket_referensi_jenis_surat' => $this->request->getPost('ket_referensi_jenis_surat'), // mengambil data keterangan referensi jenis surat
             'updated_at' => date('Y-m-d H:i:s') // mengambil data template jenis surat
         ];

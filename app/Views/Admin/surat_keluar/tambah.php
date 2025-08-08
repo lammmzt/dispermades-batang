@@ -1,5 +1,6 @@
 <?= $this->extend('Template/index') ?>
 <?= $this->section('content') ?>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <div class="col-sm-12">
     <div class="card">
         <div class="card-header d-flex justify-content-between">
@@ -65,8 +66,25 @@
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>
                             <input type="text" class="form-control" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
                                 name="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>" required
+                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>"
+                                <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>">
+                        </div>
+                        <?php
+                        elseif($djs['tipe_referensi_jenis_surat'] == 'select'):
+                        // split data data_bantu_jenis_surat dengan tanda koma
+                        $data_bantu_jenis_surat = explode(',', isset($djs['data_bantu_jenis_surat']) ? $djs['data_bantu_jenis_surat'] : '');
+                        ?>
+                        <div class="col-md-6 mt-2 mb-2">
+                            <label for="<?= $djs['kode_referensi_jenis_surat']; ?>" class="form-label">
+                                <?= $djs['nama_referensi_jenis_surat']; ?></label>
+                            <select class="form-select select2" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
+                                name="<?= $djs['kode_referensi_jenis_surat']; ?>"
+                                <?= (isset($djs['wajib_jenis_surat']) && $djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>>
+                                <?php foreach($data_bantu_jenis_surat as $dbjs): ?>
+                                <option value="<?= $dbjs; ?>"><?= $dbjs; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <?php
                         elseif($djs['tipe_referensi_jenis_surat'] == 'number'):
@@ -76,7 +94,8 @@
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>
                             <input type="number" class="form-control" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
                                 name="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>" required
+                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>"
+                                <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>">
                         </div>
                         <?php
@@ -86,7 +105,8 @@
                             <label for="<?= $djs['kode_referensi_jenis_surat']; ?>" class="form-label">
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>
                             <textarea class="form-control" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                name="<?= $djs['kode_referensi_jenis_surat']; ?>" required
+                                name="<?= $djs['kode_referensi_jenis_surat']; ?>"
+                                <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>"><?= old($djs   ['kode_referensi_jenis_surat']); ?></textarea>
                         </div>
                         <?php
@@ -97,7 +117,8 @@
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>
                             <input type="date" class="form-control" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
                                 name="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>" required
+                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>"
+                                <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>">
                         </div>
                         <?php
@@ -109,7 +130,8 @@
                             <input type="datetime-local" class="form-control"
                                 id="<?= $djs['kode_referensi_jenis_surat']; ?>"
                                 name="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>" required
+                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>"
+                                <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>">
                         </div>
                         <?php
@@ -120,7 +142,8 @@
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>
                             <input type="time" class="form-control" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
                                 name="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>" required
+                                value="<?= old($djs['kode_referensi_jenis_surat']); ?>"
+                                <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>">
                         </div>
                         <?php
@@ -130,7 +153,8 @@
                             <label for="<?= $djs['kode_referensi_jenis_surat']; ?>" class="form-label">
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>
                             <textarea class="form-control" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                name="<?= $djs['kode_referensi_jenis_surat']; ?>" required
+                                name="<?= $djs['kode_referensi_jenis_surat']; ?>"
+                                <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>"><?= old($djs   ['kode_referensi_jenis_surat']); ?></textarea>
                             <script>
                             CKEDITOR.replace('<?= $djs['kode_referensi_jenis_surat']; ?>');

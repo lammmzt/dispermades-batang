@@ -29,7 +29,7 @@ class External extends BaseController
         // dd($this->request->getPost());
         $validation->setRules([ // set rules validasi
             'nama_external' => 'required|is_unique[external.nama_external]',
-            'nama_alias_external' => 'required|is_unique[external.nama_alias_external]',
+            'email_external' => 'required|is_unique[external.email_external]',
             'kota_external' => 'required',
             'alamat_external' => 'required',
             'kota_external' => 'required',
@@ -64,13 +64,13 @@ class External extends BaseController
             'created_at' => date('Y-m-d H:i:s')
         ];
         // dd($data_user);
-        $userModel->insert($data_user); // insert data user
+        
         // save external
         $data = [ // set data external
             'id_external' => Uuid::uuid4()->toString(),
             'id_user' => $id_user,
             'nama_external' => ucwords($this->request->getPost('nama_external')),
-            'nama_alias_external' => ucwords($this->request->getPost('nama_external')),
+            'email_external' => ucwords($this->request->getPost('email_external')),
             'kota_external' => $this->request->getPost('kota_external'),
             'kota_external' => $this->request->getPost('kota_external'),
             'alamat_external' => $this->request->getPost('alamat_external'),
@@ -79,11 +79,34 @@ class External extends BaseController
             'created_at' => date('Y-m-d H:i:s')
         ];
         // dd($data);
-        $model->insert($data); // insert data external
+        
 
-        session()->setFlashdata('success', 'Data external berhasil ditambahkan'); // set flashdata success
-        return redirect()->to('/External'); // redirect ke halaman external
+        $email = service('email'); // membuat objek email
+        $email->setTo($this->request->getPost('email_external')); // set email tujuan
+        $email->setFrom('admin@dispermadesbatang.id', 'Admin'); // set email pengirim
+        $email->setSubject('Selamat Datang di Dispermades Batang'); // set subject email
+        // informasi username login dan passowrd
+        $email->setMessage('
+            <h1>Selamat Datang di Dispermades Batang</h1>
+            <p>Username anda adalah : ' . $username . '</p>
+            <p>Password anda adalah : ' . $username . '</p>
+            <p>Untuk login silahkan klik link berikut : <a href="' . base_url('Auth') . '">Login</a></p>
+            <p>Terima Kasih</p>
+        '); // set message email
+        if($email->send()){ // jika email berhasil dikirim
+            $userModel->insert($data_user); // insert data user
+            $model->insert($data); // insert data external
+            session()->setFlashdata('success', 'Data external berhasil ditambahkan'); // set flashdata success
+            return redirect()->to('/External'); // redirect ke halaman external
+        }else{ // jika email gagal dikirim
+            session()->setFlashdata('errors', 'Data external gagal ditambahkan'); // set flashdata error
+            return redirect()->to('/External')->withInput(); // redirect ke halaman external
+            // $data = $email->printDebugger(['headers', 'subject', 'message']);
+            // print_r($data);
+        }
+        
     }
+
 
     public function update() // mengupdate data external
     {
@@ -93,7 +116,7 @@ class External extends BaseController
         $validation->setRules([ // set rules validasi
             'nama_external' => 'required|is_unique[external.nama_external,id_external,' . $id . ']',
             'kota_external' => 'required',
-            'nama_alias_external' => 'required|is_unique[external.nama_alias_external,id_external,' . $id . ']',
+            'email' => 'required|is_unique[external.email_external,id_external,' . $id . ']',
             'kota_external' => 'required',
             'alamat_external' => 'required',
             'no_tlp_external' => 'required',
@@ -127,7 +150,7 @@ class External extends BaseController
             'nama_external' => ucwords($this->request->getPost('nama_external')),
             'kota_external' => $this->request->getPost('kota_external'),
             'kota_external' => $this->request->getPost('kota_external'),
-            'nama_alias_external' => ucwords($this->request->getPost('nama_alias_external')),
+            'email_external' => ucwords($this->request->getPost('email_external')),
             'alamat_external' => $this->request->getPost('alamat_external'),
             'no_tlp_external' => $this->request->getPost('no_tlp_external'),
             'updated_at' => date('Y-m-d H:i:s'),
