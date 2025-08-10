@@ -418,6 +418,7 @@ CKEDITOR.replace('preview_hasil_surat', {
 //     }
 // });
 $('#form_aprove').submit(function(e) {
+    e.preventDefault();
     $.ajax({
         url: '<?= base_url('Surat_keluar/aproveSurat'); ?>',
         type: 'POST',
