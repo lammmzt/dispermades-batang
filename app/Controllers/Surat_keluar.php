@@ -136,7 +136,7 @@ class Surat_keluar extends BaseController
             'isian_surat_keluar' => json_encode($isian_surat_keluar), // set isian surat keluar
             'judul_surat_keluar' => $this->request->getPost('judul_surat_keluar'), // set judul surat keluar
             'no_surat_keluar' => $this->request->getPost('no_surat_keluar'), // set no surat keluar
-            'status_surat_keluar' => '1', // set status surat keluar
+            'status_surat_keluar' => '2', // set status surat keluar
             'keterangan_surat_keluar' => $this->request->getPost('keterangan_surat_keluar'), // set keterangan surat keluar
             'lampiran_surat_keluar' => $newName, // set nama file lampiran surat
             'tipe_lampiran_surat_keluar' => $this->request->getPost('tipe_lampiran_surat_keluar'), // set tipe lampiran surat
