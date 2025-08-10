@@ -70,7 +70,7 @@ function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat
                 if(!empty($tanggal_awal) && !empty($tanggal_akhir)): ?>
                 <div class="col-12">
                     <a href="<?= base_url('Laporan/cetakSuratKeluar/' . $tanggal_awal . '/' . $tanggal_akhir); ?>"
-                        class="btn btn-primary mb-3" target="_blank">Cetak Laporan</a>
+                        class="btn btn-primary mb-3" target="_blank">Cetak Laporan PDF</a>
                 </div>
                 <?php 
                 endif;
@@ -79,8 +79,7 @@ function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat
 
 
             <div class="table-responsive">
-                <table id="user-list-table" class="table table-striped data_tables my-2" role="grid"
-                    data-bs-toggle="data-table">
+                <table class="table table-striped  my-2" role="grid" data-bs-toggle="data-table" id="laporan">
                     <thead>
                         <tr class="ligth">
                             <th>#</th>
@@ -130,3 +129,16 @@ function formatNomorSuratKeluar($nomor_surat_keluar, $kode_surat, $tanggal_surat
     </div>
 </div>
 <?= $this->endSection('content'); ?>
+<?= $this->section('script'); ?>
+<script>
+new DataTable('#laporan', {
+    layout: {
+        topStart: {
+            buttons: ['excel', ]
+        }
+    },
+    paging: false,
+    searching: false
+});
+</script>
+<?= $this->endSection('script'); ?>

@@ -140,8 +140,9 @@
                         <div class="col-md-6 mt-2 mb-2">
                             <label for="<?= $djs['kode_referensi_jenis_surat']; ?>" class="form-label">
                                 <?= $djs['nama_referensi_jenis_surat']; ?></label>
-                            <input type="time" class="form-control" id="<?= $djs['kode_referensi_jenis_surat']; ?>"
-                                name="<?= $djs['kode_referensi_jenis_surat']; ?>"
+                            <input type="text" class="form-control clockpicker"
+                                id="<?= $djs['kode_referensi_jenis_surat']; ?>"
+                                name="<?= $djs['kode_referensi_jenis_surat']; ?>" placeholder="Pilih waktu"
                                 value="<?= old($djs['kode_referensi_jenis_surat']); ?>"
                                 <?= ($djs['wajib_jenis_surat'] == '1') ? 'required' : ''; ?>
                                 placeholder="<?= $djs['nama_referensi_jenis_surat']; ?>">
@@ -467,6 +468,12 @@ $('#form_surat_keluar').submit(function() {
         sweetalert('warning', 'Perhatian', 'Penerima harus diisi');
         return false;
     }
+});
+flatpickr(".clockpicker", {
+    enableTime: true, // aktifkan mode waktu
+    noCalendar: true, // hilangkan kalender
+    dateFormat: "H:i", // format 24 jam
+    time_24hr: true // paksa 24 jam
 });
 </script>
 <?= $this->endSection('script'); ?>

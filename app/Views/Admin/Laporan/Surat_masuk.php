@@ -56,7 +56,7 @@ function formatiIndonesia($tanggal)
             if(!empty($tanggal_awal) && !empty($tanggal_akhir)): ?>
                 <div class="col-12">
                     <a href="<?= base_url('Laporan/cetakSuratMasuk/' . $tanggal_awal . '/' . $tanggal_akhir); ?>"
-                        class="btn btn-primary mb-3" target="_blank">Cetak Laporan</a>
+                        class="btn btn-primary mb-3" target="_blank">Cetak Laporan PDF</a>
                 </div>
                 <?php
             endif;
@@ -64,8 +64,7 @@ function formatiIndonesia($tanggal)
             </div>
 
             <div class="table-responsive">
-                <table id="user-list-table" class="table table-striped data_tables my-2" role="grid"
-                    data-bs-toggle="data-table">
+                <table id="laporan" class="table table-striped my-2" role="grid" data-bs-toggle="data-table">
                     <thead>
                         <tr class="ligth">
                             <th>#</th>
@@ -119,3 +118,16 @@ function formatiIndonesia($tanggal)
     </div>
 </div>
 <?= $this->endSection('content'); ?>
+<?= $this->section('script'); ?>
+<script>
+new DataTable('#laporan', {
+    layout: {
+        topStart: {
+            buttons: ['excel', ]
+        }
+    },
+    paging: false,
+    searching: false
+});
+</script>
+<?= $this->endSection('script'); ?>
