@@ -408,52 +408,52 @@ CKEDITOR.replace('preview_hasil_surat', {
 });
 
 // when submit form aprove dan jika select status_surat_keluar = 3
-$('#form_aprove').submit(function(e) {
-    e.preventDefault();
-    var status_surat_keluar = $('#status_surat_keluar').val();
-    if (status_surat_keluar == '3') {
-        $('#konfirmasiPaass').modal('show');
-    } else {
-        this.submit();
-    }
-});
+// $('#form_aprove').submit(function(e) {
+//     e.preventDefault();
+//     var status_surat_keluar = $('#status_surat_keluar').val();
+//     if (status_surat_keluar == '3') {
+//         $('#konfirmasiPaass').modal('show');
+//     } else {
+//         this.submit();
+//     }
+// });
 
-// when button konfirmasiPaass clicked
-$('#btn_konfirmasi').click(function(e) {
-    e.preventDefault();
-    var password = $('#password').val();
-    $.ajax({
-        url: '<?= base_url('Users/verifPassword'); ?>',
-        type: 'POST',
-        data: {
-            password: password,
-        },
-        dataType: 'json',
-        success: function(response) {
-            if (response.error == false) {
-                $('#konfirmasiPaass').modal('hide');
-                $.ajax({
-                    url: '<?= base_url('Surat_keluar/aproveSurat'); ?>',
-                    type: 'POST',
-                    data: $('#form_aprove').serialize(),
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.error == false) {
-                            sweetalert('success', 'Berhasil', response.data);
-                            setTimeout(function() {
-                                window.location.href =
-                                    '<?= base_url('Surat_keluar'); ?>';
-                            }, 2000);
-                        } else {
-                            sweetalert('error', 'Gagal', response.data);
-                        }
-                    }
-                });
-            } else {
-                sweetalert('error', 'Password Salah', 'Password yang anda masukan salah');
-            }
-        }
-    });
-});
+// // when button konfirmasiPaass clicked
+// $('#btn_konfirmasi').click(function(e) {
+//     e.preventDefault();
+//     var password = $('#password').val();
+//     $.ajax({
+//         url: '<?= base_url('Users/verifPassword'); ?>',
+//         type: 'POST',
+//         data: {
+//             password: password,
+//         },
+//         dataType: 'json',
+//         success: function(response) {
+//             if (response.error == false) {
+//                 $('#konfirmasiPaass').modal('hide');
+//                 $.ajax({
+//                     url: '<?= base_url('Surat_keluar/aproveSurat'); ?>',
+//                     type: 'POST',
+//                     data: $('#form_aprove').serialize(),
+//                     dataType: 'json',
+//                     success: function(response) {
+//                         if (response.error == false) {
+//                             sweetalert('success', 'Berhasil', response.data);
+//                             setTimeout(function() {
+//                                 window.location.href =
+//                                     '<?= base_url('Surat_keluar'); ?>';
+//                             }, 2000);
+//                         } else {
+//                             sweetalert('error', 'Gagal', response.data);
+//                         }
+//                     }
+//                 });
+//             } else {
+//                 sweetalert('error', 'Password Salah', 'Password yang anda masukan salah');
+//             }
+//         }
+//     });
+// });
 </script>
 <?= $this->endSection('script'); ?>
