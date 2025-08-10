@@ -419,25 +419,29 @@ CKEDITOR.replace('preview_hasil_surat', {
 // });
 $('#form_aprove').submit(function(e) {
     e.preventDefault();
-    $.ajax({
-        url: '<?= base_url('Surat_keluar/aproveSurat'); ?>',
-        type: 'POST',
-        data: $('#form_aprove').serialize(),
-        dataType: 'json',
-        success: function(response) {
-            if (response.error == false) {
-                sweetalert('success', 'Berhasil', response.data);
-                setTimeout(function() {
-                    window.location.href =
-                        '<?= base_url('Surat_keluar'); ?>';
-                }, 2000);
-            } else {
-                sweetalert('error', 'Gagal', response.data);
+    var status_surat_keluar = $('#status_surat_keluar').val();
+    if (status_surat_keluar == '3') {
+        $.ajax({
+            url: '<?= base_url('Surat_keluar/aproveSurat'); ?>',
+            type: 'POST',
+            data: $('#form_aprove').serialize(),
+            dataType: 'json',
+            success: function(response) {
+                if (response.error == false) {
+                    sweetalert('success', 'Berhasil', response.data);
+                    setTimeout(function() {
+                        window.location.href =
+                            '<?= base_url('Surat_keluar'); ?>';
+                    }, 2000);
+                } else {
+                    sweetalert('error', 'Gagal', response.data);
+                }
             }
-        }
-    });
+        });
+    } else {
+        this.submit();
+    }
 });
-
 // // when button konfirmasiPaass clicked
 // $('#btn_konfirmasi').click(function(e) {
 //     e.preventDefault();
