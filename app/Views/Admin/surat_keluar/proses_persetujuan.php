@@ -417,6 +417,25 @@ CKEDITOR.replace('preview_hasil_surat', {
 //         this.submit();
 //     }
 // });
+$('#form_aprove').submit(function(e) {
+    $.ajax({
+        url: '<?= base_url('Surat_keluar/aproveSurat'); ?>',
+        type: 'POST',
+        data: $('#form_aprove').serialize(),
+        dataType: 'json',
+        success: function(response) {
+            if (response.error == false) {
+                sweetalert('success', 'Berhasil', response.data);
+                setTimeout(function() {
+                    window.location.href =
+                        '<?= base_url('Surat_keluar'); ?>';
+                }, 2000);
+            } else {
+                sweetalert('error', 'Gagal', response.data);
+            }
+        }
+    });
+});
 
 // // when button konfirmasiPaass clicked
 // $('#btn_konfirmasi').click(function(e) {
