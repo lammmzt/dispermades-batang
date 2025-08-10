@@ -65,7 +65,7 @@
 
                                 <td>
                                     <div class="flex align-items-center list-user-action">
-                                        <a class="btn btn-sm btn-icon btn-warning" data-bs-toggle="modal" href="#"
+                                        <a class="btn btn-sm btn-icon btn-warning edit" data-bs-toggle="modal" href="#"
                                             data-bs-target="#editreferensi<?= $rf['id_referensi_jenis_surat']; ?>">
                                             Edit
                                             </span>
@@ -252,7 +252,7 @@
                             style="display: <?= ($rf['tipe_referensi_jenis_surat'] == 'select') ? 'block' : 'none'; ?>;">
                             <label for="data_bantu_jenis_surat" class="form-label">Data Bantu Jenis Surat</label>
                             <textarea class="form-control" id="data_bantu_jenis_surat" name="data_bantu_jenis_surat"
-                                placeholder="Keterangan" required
+                                placeholder="Keterangan"
                                 value="<?= old('data_bantu_jenis_surat'); ?>"><?= $rf['data_bantu_jenis_surat']; ?></textarea>
                             <span class="form-text text-muted">Pisahkan dengan koma (,) jika lebih dari satu data</span>
                         </div>

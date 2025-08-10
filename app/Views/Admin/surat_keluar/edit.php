@@ -319,9 +319,9 @@
                             <select class="form-select" name="status_surat_keluar" required style="width: 100%;"
                                 id="status_surat_keluar">
                                 <option selected>Pilih Proses
-                                <option value="1" <?= $surat_keluar['status_surat_keluar'] == '1' ? 'selected' : ''; ?>>
+                                    <!-- <option value="1" <?= $surat_keluar['status_surat_keluar'] == '1' ? 'selected' : ''; ?>>
                                     Draft
-                                </option>
+                                </option> -->
                                 <option value="2" <?= $surat_keluar['status_surat_keluar'] == '2' ? 'selected' : ''; ?>>
                                     Persetujuan & TTD
                                 </option>
